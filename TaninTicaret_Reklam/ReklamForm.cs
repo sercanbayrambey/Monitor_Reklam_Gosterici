@@ -28,12 +28,14 @@ namespace TaninTicaret_Reklam
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.ControlBox = true;
         }
 
         public void ReklamiTamEkranYap()
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ControlBox = false;
             ResimReklamBaslat();
         }
 
@@ -42,6 +44,7 @@ namespace TaninTicaret_Reklam
         {
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.ControlBox = true;
         }
 
 

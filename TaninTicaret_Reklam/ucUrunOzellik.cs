@@ -18,7 +18,6 @@ namespace TaninTicaret_Reklam
         }
         public string UrunAd { get; set; }
         public string UrunAciklama { get; set; }
-        public decimal UrunFiyat { get; set; }
         public string UrunResimYol { get; set; }
 
         public void BilgileriFormaCek()
@@ -26,7 +25,6 @@ namespace TaninTicaret_Reklam
 
             lblUrunAdi.Text = UrunAd;
             lblOzellikler.Text = UrunAciklama;
-            lblFiyat.Text = UrunFiyat + " TL";
             pboxUrun.ImageLocation = UrunResimYol;
         }
 

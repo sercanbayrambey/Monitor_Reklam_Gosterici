@@ -24,14 +24,15 @@ namespace TaninTicaret_Reklam
             SqlDataReader dr;
             ResimReklamList.Clear();
             string query = "SELECT * FROM tblResimReklamlar";
-            db.Connect();
+            if (!db.Connect())
+                return ResimReklamList;
+                
             dr = db.GetQuery(query);
             while(dr.Read())
             {
                 ucUrunOzellik urun = new ucUrunOzellik();
                 urun.UrunAd = dr["urun_ad"].ToString();
                 urun.UrunAciklama = dr["urun_aciklama"].ToString();
-                urun.UrunFiyat = Convert.ToDecimal(dr["urun_fiyat"]);
                 urun.UrunResimYol = dr["urun_resim_yol"].ToString();
                 urun.BilgileriFormaCek();
                 ResimReklamList.Add(urun);

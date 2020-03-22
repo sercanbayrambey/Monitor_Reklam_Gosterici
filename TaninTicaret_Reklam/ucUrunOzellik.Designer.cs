@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucUrunOzellik));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.btnPBOX_TopBorder = new System.Windows.Forms.Button();
+            this.btnPBOX_BottomBorder = new System.Windows.Forms.Button();
+            this.btnPBOX_RightBorder = new System.Windows.Forms.Button();
             this.pboxUrun = new System.Windows.Forms.PictureBox();
             this.lblUrunAdi = new System.Windows.Forms.Label();
             this.btnBorderBottom = new System.Windows.Forms.Button();
@@ -41,14 +44,12 @@
             this.btnAyrac2 = new System.Windows.Forms.Button();
             this.lblOzellikler = new System.Windows.Forms.Label();
             this.btnAyrac3 = new System.Windows.Forms.Button();
-            this.lblFiyat = new System.Windows.Forms.Label();
             this.btnAyrac5 = new System.Windows.Forms.Button();
             this.btnPBOX_LeftBorder = new System.Windows.Forms.Button();
-            this.btnPBOX_RightBorder = new System.Windows.Forms.Button();
-            this.btnPBOX_BottomBorder = new System.Windows.Forms.Button();
-            this.btnPBOX_TopBorder = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxUrun)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // metroPanel1
@@ -68,6 +69,51 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
+            // btnPBOX_TopBorder
+            // 
+            this.btnPBOX_TopBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPBOX_TopBorder.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPBOX_TopBorder.Enabled = false;
+            this.btnPBOX_TopBorder.FlatAppearance.BorderSize = 0;
+            this.btnPBOX_TopBorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPBOX_TopBorder.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnPBOX_TopBorder.Location = new System.Drawing.Point(3, 0);
+            this.btnPBOX_TopBorder.Name = "btnPBOX_TopBorder";
+            this.btnPBOX_TopBorder.Size = new System.Drawing.Size(299, 7);
+            this.btnPBOX_TopBorder.TabIndex = 17;
+            this.btnPBOX_TopBorder.UseVisualStyleBackColor = false;
+            // 
+            // btnPBOX_BottomBorder
+            // 
+            this.btnPBOX_BottomBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPBOX_BottomBorder.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPBOX_BottomBorder.Enabled = false;
+            this.btnPBOX_BottomBorder.FlatAppearance.BorderSize = 0;
+            this.btnPBOX_BottomBorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPBOX_BottomBorder.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnPBOX_BottomBorder.Location = new System.Drawing.Point(0, 325);
+            this.btnPBOX_BottomBorder.Name = "btnPBOX_BottomBorder";
+            this.btnPBOX_BottomBorder.Size = new System.Drawing.Size(299, 7);
+            this.btnPBOX_BottomBorder.TabIndex = 16;
+            this.btnPBOX_BottomBorder.UseVisualStyleBackColor = false;
+            // 
+            // btnPBOX_RightBorder
+            // 
+            this.btnPBOX_RightBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPBOX_RightBorder.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPBOX_RightBorder.Enabled = false;
+            this.btnPBOX_RightBorder.FlatAppearance.BorderSize = 0;
+            this.btnPBOX_RightBorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPBOX_RightBorder.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnPBOX_RightBorder.Location = new System.Drawing.Point(292, 0);
+            this.btnPBOX_RightBorder.Name = "btnPBOX_RightBorder";
+            this.btnPBOX_RightBorder.Size = new System.Drawing.Size(7, 332);
+            this.btnPBOX_RightBorder.TabIndex = 15;
+            this.btnPBOX_RightBorder.UseVisualStyleBackColor = false;
+            // 
             // pboxUrun
             // 
             this.pboxUrun.Image = ((System.Drawing.Image)(resources.GetObject("pboxUrun.Image")));
@@ -85,9 +131,9 @@
             this.lblUrunAdi.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblUrunAdi.Location = new System.Drawing.Point(53, 354);
             this.lblUrunAdi.Name = "lblUrunAdi";
-            this.lblUrunAdi.Size = new System.Drawing.Size(293, 50);
+            this.lblUrunAdi.Size = new System.Drawing.Size(299, 50);
             this.lblUrunAdi.TabIndex = 1;
-            this.lblUrunAdi.Text = "Ürün Adı";
+            this.lblUrunAdi.Text = "ÜRÜN ADI";
             this.lblUrunAdi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnBorderBottom
@@ -225,19 +271,6 @@
             this.btnAyrac3.TabIndex = 11;
             this.btnAyrac3.UseVisualStyleBackColor = false;
             // 
-            // lblFiyat
-            // 
-            this.lblFiyat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFiyat.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold);
-            this.lblFiyat.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblFiyat.Location = new System.Drawing.Point(19, 607);
-            this.lblFiyat.Name = "lblFiyat";
-            this.lblFiyat.Size = new System.Drawing.Size(360, 104);
-            this.lblFiyat.TabIndex = 12;
-            this.lblFiyat.Text = "120,00 TL";
-            this.lblFiyat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnAyrac5
             // 
             this.btnAyrac5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -269,58 +302,24 @@
             this.btnPBOX_LeftBorder.TabIndex = 14;
             this.btnPBOX_LeftBorder.UseVisualStyleBackColor = false;
             // 
-            // btnPBOX_RightBorder
+            // pictureBox1
             // 
-            this.btnPBOX_RightBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPBOX_RightBorder.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPBOX_RightBorder.Enabled = false;
-            this.btnPBOX_RightBorder.FlatAppearance.BorderSize = 0;
-            this.btnPBOX_RightBorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPBOX_RightBorder.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnPBOX_RightBorder.Location = new System.Drawing.Point(292, 0);
-            this.btnPBOX_RightBorder.Name = "btnPBOX_RightBorder";
-            this.btnPBOX_RightBorder.Size = new System.Drawing.Size(7, 332);
-            this.btnPBOX_RightBorder.TabIndex = 15;
-            this.btnPBOX_RightBorder.UseVisualStyleBackColor = false;
-            // 
-            // btnPBOX_BottomBorder
-            // 
-            this.btnPBOX_BottomBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPBOX_BottomBorder.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPBOX_BottomBorder.Enabled = false;
-            this.btnPBOX_BottomBorder.FlatAppearance.BorderSize = 0;
-            this.btnPBOX_BottomBorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPBOX_BottomBorder.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnPBOX_BottomBorder.Location = new System.Drawing.Point(0, 325);
-            this.btnPBOX_BottomBorder.Name = "btnPBOX_BottomBorder";
-            this.btnPBOX_BottomBorder.Size = new System.Drawing.Size(299, 7);
-            this.btnPBOX_BottomBorder.TabIndex = 16;
-            this.btnPBOX_BottomBorder.UseVisualStyleBackColor = false;
-            // 
-            // btnPBOX_TopBorder
-            // 
-            this.btnPBOX_TopBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPBOX_TopBorder.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPBOX_TopBorder.Enabled = false;
-            this.btnPBOX_TopBorder.FlatAppearance.BorderSize = 0;
-            this.btnPBOX_TopBorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPBOX_TopBorder.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnPBOX_TopBorder.Location = new System.Drawing.Point(3, 0);
-            this.btnPBOX_TopBorder.Name = "btnPBOX_TopBorder";
-            this.btnPBOX_TopBorder.Size = new System.Drawing.Size(299, 7);
-            this.btnPBOX_TopBorder.TabIndex = 17;
-            this.btnPBOX_TopBorder.UseVisualStyleBackColor = false;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(19, 610);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(360, 124);
+            this.pictureBox1.TabIndex = 15;
+            this.pictureBox1.TabStop = false;
             // 
             // ucUrunOzellik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnPBOX_LeftBorder);
-            this.Controls.Add(this.lblFiyat);
             this.Controls.Add(this.lblUrunOzellikBaslik);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnBorderLeft);
@@ -337,6 +336,7 @@
             this.Size = new System.Drawing.Size(398, 783);
             this.metroPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pboxUrun)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,11 +355,11 @@
         private System.Windows.Forms.Button btnAyrac2;
         private System.Windows.Forms.Label lblOzellikler;
         private System.Windows.Forms.Button btnAyrac3;
-        private System.Windows.Forms.Label lblFiyat;
         private System.Windows.Forms.Button btnAyrac5;
         private System.Windows.Forms.Button btnPBOX_TopBorder;
         private System.Windows.Forms.Button btnPBOX_BottomBorder;
         private System.Windows.Forms.Button btnPBOX_RightBorder;
         private System.Windows.Forms.Button btnPBOX_LeftBorder;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
