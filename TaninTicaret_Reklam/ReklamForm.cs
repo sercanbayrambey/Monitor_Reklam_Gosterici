@@ -173,5 +173,10 @@ namespace TaninTicaret_Reklam
                 resimReklamTH.Abort();
             Application.Exit();
         }
+
+        private void panelBottom_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
