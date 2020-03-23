@@ -33,10 +33,11 @@ namespace TaninTicaret_Reklam
 
         public void ReklamiTamEkranYap()
         {
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ControlBox = false;
-            ResimReklamBaslat();
+            if(resimReklamTH==null)
+                ResimReklamBaslat();
         }
 
 
@@ -45,6 +46,7 @@ namespace TaninTicaret_Reklam
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.ControlBox = true;
+
         }
 
 
@@ -86,7 +88,6 @@ namespace TaninTicaret_Reklam
                             {
                                 lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
                             }));
-                        
                             Thread.Sleep(5000);
                             panelContainer.BeginInvoke((Action)(() =>
                             {
@@ -97,6 +98,8 @@ namespace TaninTicaret_Reklam
                 }
                 catch
                 {
+                    resimReklamTH = null;
+                    ResimReklamBaslat();
                     break;
                 }
             }

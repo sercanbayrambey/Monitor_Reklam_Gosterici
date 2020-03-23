@@ -217,7 +217,7 @@
             // 
             this.lblUrunOzellikBaslik.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblUrunOzellikBaslik.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Bold);
+            this.lblUrunOzellikBaslik.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold);
             this.lblUrunOzellikBaslik.Location = new System.Drawing.Point(19, 418);
             this.lblUrunOzellikBaslik.Name = "lblUrunOzellikBaslik";
             this.lblUrunOzellikBaslik.Size = new System.Drawing.Size(360, 34);
@@ -245,7 +245,7 @@
             // 
             this.lblOzellikler.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblOzellikler.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
+            this.lblOzellikler.Font = new System.Drawing.Font("Century Gothic", 16F);
             this.lblOzellikler.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.lblOzellikler.Location = new System.Drawing.Point(19, 465);
             this.lblOzellikler.Name = "lblOzellikler";

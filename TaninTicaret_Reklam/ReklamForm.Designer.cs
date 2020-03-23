@@ -33,10 +33,9 @@
             this.lblTaninTicaret = new System.Windows.Forms.Label();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panelBottom = new System.Windows.Forms.Panel();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblSite = new System.Windows.Forms.Label();
             this.lblTelefon = new System.Windows.Forms.Label();
+            this.lblSite = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             this.panelLogo.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +93,6 @@
             this.panelBottom.BackColor = System.Drawing.Color.DodgerBlue;
             this.panelBottom.Controls.Add(this.lblTelefon);
             this.panelBottom.Controls.Add(this.lblSite);
-            this.panelBottom.Controls.Add(this.label1);
             this.panelBottom.Controls.Add(this.lblDate);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelBottom.Location = new System.Drawing.Point(0, 747);
@@ -102,6 +100,32 @@
             this.panelBottom.Size = new System.Drawing.Size(1439, 100);
             this.panelBottom.TabIndex = 3;
             this.panelBottom.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBottom_Paint);
+            // 
+            // lblTelefon
+            // 
+            this.lblTelefon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTelefon.BackColor = System.Drawing.SystemColors.Highlight;
+            this.lblTelefon.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 36F);
+            this.lblTelefon.ForeColor = System.Drawing.Color.White;
+            this.lblTelefon.Location = new System.Drawing.Point(1047, 2);
+            this.lblTelefon.Name = "lblTelefon";
+            this.lblTelefon.Size = new System.Drawing.Size(411, 105);
+            this.lblTelefon.TabIndex = 4;
+            this.lblTelefon.Text = "0232 323 09 41";
+            this.lblTelefon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblSite
+            // 
+            this.lblSite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblSite.BackColor = System.Drawing.SystemColors.Highlight;
+            this.lblSite.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSite.ForeColor = System.Drawing.Color.White;
+            this.lblSite.Location = new System.Drawing.Point(-7, 3);
+            this.lblSite.Name = "lblSite";
+            this.lblSite.Size = new System.Drawing.Size(411, 97);
+            this.lblSite.TabIndex = 3;
+            this.lblSite.Text = "taninticaret.net";
+            this.lblSite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDate
             // 
@@ -114,44 +138,6 @@
             this.lblDate.TabIndex = 1;
             this.lblDate.Text = "22/03/2020 22:36";
             this.lblDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Font = new System.Drawing.Font("Arial", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(361, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(733, 97);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "22/03/2020 22:36";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblSite
-            // 
-            this.lblSite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblSite.BackColor = System.Drawing.SystemColors.Highlight;
-            this.lblSite.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSite.ForeColor = System.Drawing.Color.White;
-            this.lblSite.Location = new System.Drawing.Point(-7, 3);
-            this.lblSite.Name = "lblSite";
-            this.lblSite.Size = new System.Drawing.Size(411, 97);
-            this.lblSite.TabIndex = 3;
-            this.lblSite.Text = "taninticaret.net";
-            this.lblSite.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTelefon
-            // 
-            this.lblTelefon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTelefon.BackColor = System.Drawing.SystemColors.Highlight;
-            this.lblTelefon.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 30F);
-            this.lblTelefon.ForeColor = System.Drawing.Color.White;
-            this.lblTelefon.Location = new System.Drawing.Point(1047, 2);
-            this.lblTelefon.Name = "lblTelefon";
-            this.lblTelefon.Size = new System.Drawing.Size(411, 105);
-            this.lblTelefon.TabIndex = 4;
-            this.lblTelefon.Text = "0232 323 09 41";
-            this.lblTelefon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ReklamForm
             // 
@@ -188,6 +174,5 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTelefon;
         private System.Windows.Forms.Label lblSite;
-        private System.Windows.Forms.Label label1;
     }
 }
