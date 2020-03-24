@@ -206,8 +206,11 @@ namespace TaninTicaret_Reklam
             {
                 MessageBox.Show("Ürün başarıyla eklendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 UrunleriTabloyaCek();
-                reklamForm.ResimReklamDurdur();
-                reklamForm.ResimReklamBaslat(tbarYaziSure.Value);
+                if(reklamForm.resimReklamTH!=null)
+                {
+                    reklamForm.ResimReklamDurdur();
+                    reklamForm.ResimReklamBaslat(tbarYaziSure.Value);
+                }
                 pboxUrunOnizleme.Image.Save(UrunImageDir);
                 tboxUrunEkle_UrunAdi.Text = String.Empty;
                 pboxUrunOnizleme.Image = null;

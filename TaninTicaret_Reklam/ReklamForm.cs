@@ -15,7 +15,7 @@ namespace TaninTicaret_Reklam
     {
         AnaForm anaForm;
         Thread yaziReklamTH;
-        Thread resimReklamTH;
+        public Thread resimReklamTH;
         ResimReklamlar ResimReklam;
         List<ucUrunOzellik> ucUrunList;
 
