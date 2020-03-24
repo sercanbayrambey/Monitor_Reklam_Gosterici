@@ -106,6 +106,7 @@ namespace TaninTicaret_Reklam
             resimReklamTH.Start();
             anaForm.btnResimReklamBaslat.Visible = false;
             anaForm.btnResimReklamDurdur.Visible = true;
+            anaForm.tbarResimReklamSure.Enabled = false;
         }
 
 
@@ -162,6 +163,7 @@ namespace TaninTicaret_Reklam
                 resimReklamTH.Abort();
             anaForm.btnResimReklamBaslat.Visible = true;
             anaForm.btnResimReklamDurdur.Visible = false;
+            anaForm.tbarResimReklamSure.Enabled = true;
         }
 
 

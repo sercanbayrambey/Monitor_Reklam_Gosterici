@@ -962,7 +962,6 @@
         public MetroFramework.Controls.MetroButton btnResimReklamDurdur;
         public MetroFramework.Controls.MetroButton btnResimReklamBaslat;
         private System.Windows.Forms.Label lblReklamGecisSuresi;
-        private System.Windows.Forms.TrackBar tbarResimReklamSure;
         private MetroFramework.Controls.MetroButton btnReklamKucult;
         private System.Windows.Forms.Label lblAnaSayfa_ProgramAyarlari;
         private MetroFramework.Controls.MetroPanel panelUrunReklam;
@@ -975,6 +974,7 @@
         private MetroFramework.Controls.MetroButton btnAnaSayfa_ayarKaydet;
         public MetroFramework.Controls.MetroButton btnAnaSayfa_resimReklamMod;
         public MetroFramework.Controls.MetroButton btnAnaSayfa_yaziReklamMod;
+        public System.Windows.Forms.TrackBar tbarResimReklamSure;
     }
 }
 
