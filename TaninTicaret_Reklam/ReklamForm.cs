@@ -125,7 +125,14 @@ namespace TaninTicaret_Reklam
                         int b = this.Size.Width;
                         int a = ucItem.Size.Width * 4 + (20 * 3);
                         int baslangicDeger = (b - a) / 2;   
-                        ucItem.Location = new Point(baslangicDeger + ucItem.Size.Width * j + (20 * j), 20);
+                        try
+                        {
+                            ucItem.Location = new Point(baslangicDeger + ucItem.Size.Width * j + (20 * j), 20);
+                        }
+                        catch
+                        {
+                            continue;
+                        }
                         panelContainer.BeginInvoke((Action)(() =>
                         {
                             panelContainer.Controls.Add(ucItem);
@@ -150,7 +157,8 @@ namespace TaninTicaret_Reklam
                 }
                 catch
                 {
-                    resimReklamTH = null;
+                  /*  ResimReklamDurdur();
+                    ResimReklamBaslat(anaForm.tbarResimReklamSure.Value);*/
                     break;
                 }
             }
@@ -158,9 +166,9 @@ namespace TaninTicaret_Reklam
 
         public void ResimReklamDurdur()
         {
-            panelContainer.Controls.Clear();
             if(resimReklamTH!=null)
                 resimReklamTH.Abort();
+            panelContainer.Controls.Clear();
             anaForm.btnResimReklamBaslat.Visible = true;
             anaForm.btnResimReklamDurdur.Visible = false;
             anaForm.tbarResimReklamSure.Enabled = true;
