@@ -17,6 +17,7 @@ namespace TaninTicaret_Reklam
             InitializeComponent();
         }
         public string UrunAd { get; set; }
+        public int UrunID { get; set; }
         public string UrunAciklama { get; set; }
         public string UrunResimYol { get; set; }
 

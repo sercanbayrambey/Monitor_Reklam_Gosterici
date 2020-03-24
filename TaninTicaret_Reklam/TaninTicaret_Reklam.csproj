@@ -90,6 +90,7 @@
       <DependentUpon>ReklamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ResimReklamlar.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="ucUrunOzellik.cs">
       <SubType>UserControl</SubType>
     </Compile>

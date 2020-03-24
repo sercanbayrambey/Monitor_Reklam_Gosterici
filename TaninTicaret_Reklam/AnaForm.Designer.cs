@@ -37,12 +37,12 @@
             this.lblYaziReklam_YaziBoyutu = new System.Windows.Forms.Label();
             this.lblYaziReklamEfektAyar = new System.Windows.Forms.Label();
             this.cboxYanipSonmeEfekt = new MetroFramework.Controls.MetroCheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.btnFORM_ARKAPLANRENK = new System.Windows.Forms.Button();
+            this.btnYaziArkaPlanRenk = new MetroFramework.Controls.MetroButton();
             this.btnYAZI_ARKAPLAN_RENK = new System.Windows.Forms.Button();
             this.btnYaziReklamYaziArkaPlanRenk = new MetroFramework.Controls.MetroButton();
             this.btnRENK = new System.Windows.Forms.Button();
-            this.btnReklamDurdur = new MetroFramework.Controls.MetroButton();
+            this.btnYaziReklamDurdur = new MetroFramework.Controls.MetroButton();
             this.btnYaziReklamBaslat = new MetroFramework.Controls.MetroButton();
             this.label1 = new System.Windows.Forms.Label();
             this.btnYaziReklamYaziRenk = new MetroFramework.Controls.MetroButton();
@@ -57,8 +57,23 @@
             this.lblGYaziReklam = new System.Windows.Forms.Label();
             this.lboxYaziReklam = new System.Windows.Forms.ListBox();
             this.tabPageAnaSayfa = new MetroFramework.Controls.MetroTabPage();
+            this.lblAnaSayfa_ProgramAyarlari = new System.Windows.Forms.Label();
+            this.panelUrunReklam = new MetroFramework.Controls.MetroPanel();
+            this.btnAnaSayfa_ayarKaydet = new MetroFramework.Controls.MetroButton();
+            this.tboxAnaSayfa_Telefon = new System.Windows.Forms.TextBox();
+            this.lblAnaSayfa_Telefon = new System.Windows.Forms.Label();
+            this.tboxAnaSayfa_WebSite = new System.Windows.Forms.TextBox();
+            this.lblAnaSayfa_WebSite = new System.Windows.Forms.Label();
+            this.tboxAnaSayfa_FirmaAdi = new System.Windows.Forms.TextBox();
+            this.lblAnaSayfa_FirmaAdi = new System.Windows.Forms.Label();
+            this.btnAnaSayfa_yaziReklamMod = new MetroFramework.Controls.MetroButton();
+            this.btnAnaSayfa_resimReklamMod = new MetroFramework.Controls.MetroButton();
             this.tabPageUrunReklam = new MetroFramework.Controls.MetroTabPage();
+            this.btnResimReklamDurdur = new MetroFramework.Controls.MetroButton();
+            this.btnResimReklamBaslat = new MetroFramework.Controls.MetroButton();
             this.gboxUrunEkle = new System.Windows.Forms.GroupBox();
+            this.lblReklamGecisSuresi = new System.Windows.Forms.Label();
+            this.tbarResimReklamSure = new System.Windows.Forms.TrackBar();
             this.btnGozat = new MetroFramework.Controls.MetroButton();
             this.pboxUrunOnizleme = new System.Windows.Forms.PictureBox();
             this.btnUrunEkle = new MetroFramework.Controls.MetroButton();
@@ -71,17 +86,21 @@
             this.tboxAramaUrunAdi = new MetroFramework.Controls.MetroTextBox();
             this.dataGridUrunler = new System.Windows.Forms.DataGridView();
             this.btnReklamTamEkran = new MetroFramework.Controls.MetroButton();
-            this.btnReklamKucult = new MetroFramework.Controls.MetroButton();
             this.colorDialogYaziReklam = new System.Windows.Forms.ColorDialog();
             this.colorDialogYaziArkaPlan = new System.Windows.Forms.ColorDialog();
+            this.colorDialogFormArkaPlan = new System.Windows.Forms.ColorDialog();
+            this.btnReklamKucult = new MetroFramework.Controls.MetroButton();
             this.tabControl.SuspendLayout();
             this.tabPageYaziReklam.SuspendLayout();
             this.panelYaziReklam.SuspendLayout();
             this.gboxYaziReklamEkle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackbarYaziBoyutu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarYaziSure)).BeginInit();
+            this.tabPageAnaSayfa.SuspendLayout();
+            this.panelUrunReklam.SuspendLayout();
             this.tabPageUrunReklam.SuspendLayout();
             this.gboxUrunEkle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarResimReklamSure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxUrunOnizleme)).BeginInit();
             this.gboxArama.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUrunler)).BeginInit();
@@ -94,6 +113,7 @@
             this.tabControl.Controls.Add(this.tabPageYaziReklam);
             this.tabControl.Controls.Add(this.tabPageAnaSayfa);
             this.tabControl.Controls.Add(this.tabPageUrunReklam);
+            this.tabControl.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.tabControl.Location = new System.Drawing.Point(24, 54);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 2;
@@ -107,9 +127,9 @@
             this.tabPageYaziReklam.HorizontalScrollbarBarColor = true;
             this.tabPageYaziReklam.HorizontalScrollbarHighlightOnWheel = false;
             this.tabPageYaziReklam.HorizontalScrollbarSize = 10;
-            this.tabPageYaziReklam.Location = new System.Drawing.Point(4, 38);
+            this.tabPageYaziReklam.Location = new System.Drawing.Point(4, 44);
             this.tabPageYaziReklam.Name = "tabPageYaziReklam";
-            this.tabPageYaziReklam.Size = new System.Drawing.Size(1540, 890);
+            this.tabPageYaziReklam.Size = new System.Drawing.Size(1540, 884);
             this.tabPageYaziReklam.TabIndex = 1;
             this.tabPageYaziReklam.Text = "Yazı Reklamları";
             this.tabPageYaziReklam.VerticalScrollbarBarColor = true;
@@ -146,12 +166,12 @@
             this.gboxYaziReklamEkle.Controls.Add(this.lblYaziReklam_YaziBoyutu);
             this.gboxYaziReklamEkle.Controls.Add(this.lblYaziReklamEfektAyar);
             this.gboxYaziReklamEkle.Controls.Add(this.cboxYanipSonmeEfekt);
-            this.gboxYaziReklamEkle.Controls.Add(this.button1);
-            this.gboxYaziReklamEkle.Controls.Add(this.metroButton1);
+            this.gboxYaziReklamEkle.Controls.Add(this.btnFORM_ARKAPLANRENK);
+            this.gboxYaziReklamEkle.Controls.Add(this.btnYaziArkaPlanRenk);
             this.gboxYaziReklamEkle.Controls.Add(this.btnYAZI_ARKAPLAN_RENK);
             this.gboxYaziReklamEkle.Controls.Add(this.btnYaziReklamYaziArkaPlanRenk);
             this.gboxYaziReklamEkle.Controls.Add(this.btnRENK);
-            this.gboxYaziReklamEkle.Controls.Add(this.btnReklamDurdur);
+            this.gboxYaziReklamEkle.Controls.Add(this.btnYaziReklamDurdur);
             this.gboxYaziReklamEkle.Controls.Add(this.btnYaziReklamBaslat);
             this.gboxYaziReklamEkle.Controls.Add(this.label1);
             this.gboxYaziReklamEkle.Controls.Add(this.btnYaziReklamYaziRenk);
@@ -167,7 +187,6 @@
             this.gboxYaziReklamEkle.Size = new System.Drawing.Size(737, 621);
             this.gboxYaziReklamEkle.TabIndex = 7;
             this.gboxYaziReklamEkle.TabStop = false;
-            this.gboxYaziReklamEkle.Enter += new System.EventHandler(this.gboxYaziReklamEkle_Enter);
             // 
             // lblYaziReklamTrackBarBoyut
             // 
@@ -225,34 +244,39 @@
             this.cboxYanipSonmeEfekt.Text = "Yanıp Sönme Efekti";
             this.cboxYanipSonmeEfekt.UseSelectable = true;
             // 
-            // button1
+            // btnFORM_ARKAPLANRENK
             // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(530, 400);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 23);
-            this.button1.TabIndex = 20;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnFORM_ARKAPLANRENK.BackColor = System.Drawing.Color.Black;
+            this.btnFORM_ARKAPLANRENK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnFORM_ARKAPLANRENK.Enabled = false;
+            this.btnFORM_ARKAPLANRENK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFORM_ARKAPLANRENK.Location = new System.Drawing.Point(530, 400);
+            this.btnFORM_ARKAPLANRENK.Name = "btnFORM_ARKAPLANRENK";
+            this.btnFORM_ARKAPLANRENK.Size = new System.Drawing.Size(32, 23);
+            this.btnFORM_ARKAPLANRENK.TabIndex = 20;
+            this.btnFORM_ARKAPLANRENK.UseVisualStyleBackColor = false;
             // 
-            // metroButton1
+            // btnYaziArkaPlanRenk
             // 
-            this.metroButton1.Location = new System.Drawing.Point(406, 400);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(118, 23);
-            this.metroButton1.TabIndex = 19;
-            this.metroButton1.Text = "Arkaplan Rengi";
-            this.metroButton1.UseSelectable = true;
+            this.btnYaziArkaPlanRenk.Location = new System.Drawing.Point(406, 400);
+            this.btnYaziArkaPlanRenk.Name = "btnYaziArkaPlanRenk";
+            this.btnYaziArkaPlanRenk.Size = new System.Drawing.Size(118, 23);
+            this.btnYaziArkaPlanRenk.TabIndex = 19;
+            this.btnYaziArkaPlanRenk.Text = "Arkaplan Rengi";
+            this.btnYaziArkaPlanRenk.UseSelectable = true;
+            this.btnYaziArkaPlanRenk.Click += new System.EventHandler(this.btnYaziArkaPlanRenk_Click);
             // 
             // btnYAZI_ARKAPLAN_RENK
             // 
+            this.btnYAZI_ARKAPLAN_RENK.BackColor = System.Drawing.Color.Black;
             this.btnYAZI_ARKAPLAN_RENK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnYAZI_ARKAPLAN_RENK.Enabled = false;
+            this.btnYAZI_ARKAPLAN_RENK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnYAZI_ARKAPLAN_RENK.Location = new System.Drawing.Point(368, 400);
             this.btnYAZI_ARKAPLAN_RENK.Name = "btnYAZI_ARKAPLAN_RENK";
             this.btnYAZI_ARKAPLAN_RENK.Size = new System.Drawing.Size(32, 23);
             this.btnYAZI_ARKAPLAN_RENK.TabIndex = 18;
-            this.btnYAZI_ARKAPLAN_RENK.UseVisualStyleBackColor = true;
+            this.btnYAZI_ARKAPLAN_RENK.UseVisualStyleBackColor = false;
             // 
             // btnYaziReklamYaziArkaPlanRenk
             // 
@@ -266,26 +290,28 @@
             // 
             // btnRENK
             // 
+            this.btnRENK.BackColor = System.Drawing.Color.White;
             this.btnRENK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnRENK.Enabled = false;
+            this.btnRENK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRENK.Location = new System.Drawing.Point(206, 400);
             this.btnRENK.Name = "btnRENK";
             this.btnRENK.Size = new System.Drawing.Size(32, 23);
             this.btnRENK.TabIndex = 16;
-            this.btnRENK.UseVisualStyleBackColor = true;
+            this.btnRENK.UseVisualStyleBackColor = false;
             // 
-            // btnReklamDurdur
+            // btnYaziReklamDurdur
             // 
-            this.btnReklamDurdur.BackColor = System.Drawing.Color.Gray;
-            this.btnReklamDurdur.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnReklamDurdur.Location = new System.Drawing.Point(10, 545);
-            this.btnReklamDurdur.Name = "btnReklamDurdur";
-            this.btnReklamDurdur.Size = new System.Drawing.Size(228, 70);
-            this.btnReklamDurdur.TabIndex = 15;
-            this.btnReklamDurdur.Text = "Reklamı Durdur";
-            this.btnReklamDurdur.UseCustomBackColor = true;
-            this.btnReklamDurdur.UseSelectable = true;
-            this.btnReklamDurdur.Click += new System.EventHandler(this.btnReklamDurdur_Click);
+            this.btnYaziReklamDurdur.BackColor = System.Drawing.Color.Gray;
+            this.btnYaziReklamDurdur.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnYaziReklamDurdur.Location = new System.Drawing.Point(10, 545);
+            this.btnYaziReklamDurdur.Name = "btnYaziReklamDurdur";
+            this.btnYaziReklamDurdur.Size = new System.Drawing.Size(572, 70);
+            this.btnYaziReklamDurdur.TabIndex = 15;
+            this.btnYaziReklamDurdur.Text = "Reklamı Durdur";
+            this.btnYaziReklamDurdur.UseCustomBackColor = true;
+            this.btnYaziReklamDurdur.UseSelectable = true;
+            this.btnYaziReklamDurdur.Click += new System.EventHandler(this.btnReklamDurdur_Click);
             // 
             // btnYaziReklamBaslat
             // 
@@ -293,7 +319,7 @@
             this.btnYaziReklamBaslat.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnYaziReklamBaslat.Location = new System.Drawing.Point(10, 545);
             this.btnYaziReklamBaslat.Name = "btnYaziReklamBaslat";
-            this.btnYaziReklamBaslat.Size = new System.Drawing.Size(228, 70);
+            this.btnYaziReklamBaslat.Size = new System.Drawing.Size(572, 70);
             this.btnYaziReklamBaslat.TabIndex = 14;
             this.btnYaziReklamBaslat.Text = "Reklam Başlat";
             this.btnYaziReklamBaslat.UseCustomBackColor = true;
@@ -408,24 +434,24 @@
             this.lblYeniReklam.AutoSize = true;
             this.lblYeniReklam.BackColor = System.Drawing.Color.Transparent;
             this.lblYeniReklam.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblYeniReklam.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblYeniReklam.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblYeniReklam.Location = new System.Drawing.Point(657, 15);
             this.lblYeniReklam.Name = "lblYeniReklam";
-            this.lblYeniReklam.Size = new System.Drawing.Size(189, 19);
+            this.lblYeniReklam.Size = new System.Drawing.Size(185, 19);
             this.lblYeniReklam.TabIndex = 3;
-            this.lblYeniReklam.Text = "Yeni Yazılı Reklam Ekle:";
+            this.lblYeniReklam.Text = "Yeni Yazılı Reklam Ekle\r\n";
             // 
             // lblGYaziReklam
             // 
             this.lblGYaziReklam.AutoSize = true;
             this.lblGYaziReklam.BackColor = System.Drawing.Color.Transparent;
             this.lblGYaziReklam.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGYaziReklam.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.lblGYaziReklam.ForeColor = System.Drawing.Color.DodgerBlue;
             this.lblGYaziReklam.Location = new System.Drawing.Point(-1, 15);
             this.lblGYaziReklam.Name = "lblGYaziReklam";
-            this.lblGYaziReklam.Size = new System.Drawing.Size(136, 19);
+            this.lblGYaziReklam.Size = new System.Drawing.Size(132, 19);
             this.lblGYaziReklam.TabIndex = 2;
-            this.lblGYaziReklam.Text = "Yazılı Reklamlar:";
+            this.lblGYaziReklam.Text = "Yazılı Reklamlar";
             // 
             // lboxYaziReklam
             // 
@@ -438,38 +464,207 @@
             // 
             // tabPageAnaSayfa
             // 
+            this.tabPageAnaSayfa.Controls.Add(this.lblAnaSayfa_ProgramAyarlari);
+            this.tabPageAnaSayfa.Controls.Add(this.panelUrunReklam);
+            this.tabPageAnaSayfa.Controls.Add(this.btnAnaSayfa_yaziReklamMod);
+            this.tabPageAnaSayfa.Controls.Add(this.btnAnaSayfa_resimReklamMod);
             this.tabPageAnaSayfa.HorizontalScrollbarBarColor = true;
             this.tabPageAnaSayfa.HorizontalScrollbarHighlightOnWheel = false;
             this.tabPageAnaSayfa.HorizontalScrollbarSize = 10;
-            this.tabPageAnaSayfa.Location = new System.Drawing.Point(4, 38);
+            this.tabPageAnaSayfa.Location = new System.Drawing.Point(4, 44);
             this.tabPageAnaSayfa.Name = "tabPageAnaSayfa";
-            this.tabPageAnaSayfa.Size = new System.Drawing.Size(1540, 890);
+            this.tabPageAnaSayfa.Size = new System.Drawing.Size(1540, 884);
             this.tabPageAnaSayfa.TabIndex = 0;
             this.tabPageAnaSayfa.Text = "Ana Sayfa";
             this.tabPageAnaSayfa.VerticalScrollbarBarColor = true;
             this.tabPageAnaSayfa.VerticalScrollbarHighlightOnWheel = false;
             this.tabPageAnaSayfa.VerticalScrollbarSize = 10;
             // 
+            // lblAnaSayfa_ProgramAyarlari
+            // 
+            this.lblAnaSayfa_ProgramAyarlari.AutoSize = true;
+            this.lblAnaSayfa_ProgramAyarlari.BackColor = System.Drawing.Color.Transparent;
+            this.lblAnaSayfa_ProgramAyarlari.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnaSayfa_ProgramAyarlari.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblAnaSayfa_ProgramAyarlari.Location = new System.Drawing.Point(-2, 12);
+            this.lblAnaSayfa_ProgramAyarlari.Name = "lblAnaSayfa_ProgramAyarlari";
+            this.lblAnaSayfa_ProgramAyarlari.Size = new System.Drawing.Size(192, 26);
+            this.lblAnaSayfa_ProgramAyarlari.TabIndex = 3;
+            this.lblAnaSayfa_ProgramAyarlari.Text = "Program Ayarları";
+            // 
+            // panelUrunReklam
+            // 
+            this.panelUrunReklam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelUrunReklam.Controls.Add(this.btnAnaSayfa_ayarKaydet);
+            this.panelUrunReklam.Controls.Add(this.tboxAnaSayfa_Telefon);
+            this.panelUrunReklam.Controls.Add(this.lblAnaSayfa_Telefon);
+            this.panelUrunReklam.Controls.Add(this.tboxAnaSayfa_WebSite);
+            this.panelUrunReklam.Controls.Add(this.lblAnaSayfa_WebSite);
+            this.panelUrunReklam.Controls.Add(this.tboxAnaSayfa_FirmaAdi);
+            this.panelUrunReklam.Controls.Add(this.lblAnaSayfa_FirmaAdi);
+            this.panelUrunReklam.HorizontalScrollbarBarColor = true;
+            this.panelUrunReklam.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelUrunReklam.HorizontalScrollbarSize = 10;
+            this.panelUrunReklam.Location = new System.Drawing.Point(3, 54);
+            this.panelUrunReklam.Name = "panelUrunReklam";
+            this.panelUrunReklam.Size = new System.Drawing.Size(1534, 377);
+            this.panelUrunReklam.TabIndex = 2;
+            this.panelUrunReklam.VerticalScrollbarBarColor = true;
+            this.panelUrunReklam.VerticalScrollbarHighlightOnWheel = false;
+            this.panelUrunReklam.VerticalScrollbarSize = 10;
+            // 
+            // btnAnaSayfa_ayarKaydet
+            // 
+            this.btnAnaSayfa_ayarKaydet.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAnaSayfa_ayarKaydet.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnAnaSayfa_ayarKaydet.Location = new System.Drawing.Point(7, 197);
+            this.btnAnaSayfa_ayarKaydet.Name = "btnAnaSayfa_ayarKaydet";
+            this.btnAnaSayfa_ayarKaydet.Size = new System.Drawing.Size(284, 49);
+            this.btnAnaSayfa_ayarKaydet.TabIndex = 4;
+            this.btnAnaSayfa_ayarKaydet.Text = "Ayarları Kaydet";
+            this.btnAnaSayfa_ayarKaydet.UseCustomBackColor = true;
+            this.btnAnaSayfa_ayarKaydet.UseSelectable = true;
+            this.btnAnaSayfa_ayarKaydet.Click += new System.EventHandler(this.btnAnaSayfa_ayarKaydet_Click);
+            // 
+            // tboxAnaSayfa_Telefon
+            // 
+            this.tboxAnaSayfa_Telefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tboxAnaSayfa_Telefon.Location = new System.Drawing.Point(7, 168);
+            this.tboxAnaSayfa_Telefon.MaxLength = 50;
+            this.tboxAnaSayfa_Telefon.Name = "tboxAnaSayfa_Telefon";
+            this.tboxAnaSayfa_Telefon.Size = new System.Drawing.Size(284, 23);
+            this.tboxAnaSayfa_Telefon.TabIndex = 9;
+            // 
+            // lblAnaSayfa_Telefon
+            // 
+            this.lblAnaSayfa_Telefon.AutoSize = true;
+            this.lblAnaSayfa_Telefon.BackColor = System.Drawing.Color.Transparent;
+            this.lblAnaSayfa_Telefon.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblAnaSayfa_Telefon.ForeColor = System.Drawing.Color.Black;
+            this.lblAnaSayfa_Telefon.Location = new System.Drawing.Point(3, 146);
+            this.lblAnaSayfa_Telefon.Name = "lblAnaSayfa_Telefon";
+            this.lblAnaSayfa_Telefon.Size = new System.Drawing.Size(68, 19);
+            this.lblAnaSayfa_Telefon.TabIndex = 10;
+            this.lblAnaSayfa_Telefon.Text = "Telefon:";
+            // 
+            // tboxAnaSayfa_WebSite
+            // 
+            this.tboxAnaSayfa_WebSite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tboxAnaSayfa_WebSite.Location = new System.Drawing.Point(7, 110);
+            this.tboxAnaSayfa_WebSite.MaxLength = 100;
+            this.tboxAnaSayfa_WebSite.Name = "tboxAnaSayfa_WebSite";
+            this.tboxAnaSayfa_WebSite.Size = new System.Drawing.Size(284, 23);
+            this.tboxAnaSayfa_WebSite.TabIndex = 7;
+            // 
+            // lblAnaSayfa_WebSite
+            // 
+            this.lblAnaSayfa_WebSite.AutoSize = true;
+            this.lblAnaSayfa_WebSite.BackColor = System.Drawing.Color.Transparent;
+            this.lblAnaSayfa_WebSite.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblAnaSayfa_WebSite.ForeColor = System.Drawing.Color.Black;
+            this.lblAnaSayfa_WebSite.Location = new System.Drawing.Point(3, 88);
+            this.lblAnaSayfa_WebSite.Name = "lblAnaSayfa_WebSite";
+            this.lblAnaSayfa_WebSite.Size = new System.Drawing.Size(88, 19);
+            this.lblAnaSayfa_WebSite.TabIndex = 8;
+            this.lblAnaSayfa_WebSite.Text = "Web Sitesi:";
+            // 
+            // tboxAnaSayfa_FirmaAdi
+            // 
+            this.tboxAnaSayfa_FirmaAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tboxAnaSayfa_FirmaAdi.Location = new System.Drawing.Point(7, 50);
+            this.tboxAnaSayfa_FirmaAdi.MaxLength = 50;
+            this.tboxAnaSayfa_FirmaAdi.Name = "tboxAnaSayfa_FirmaAdi";
+            this.tboxAnaSayfa_FirmaAdi.Size = new System.Drawing.Size(284, 23);
+            this.tboxAnaSayfa_FirmaAdi.TabIndex = 5;
+            // 
+            // lblAnaSayfa_FirmaAdi
+            // 
+            this.lblAnaSayfa_FirmaAdi.AutoSize = true;
+            this.lblAnaSayfa_FirmaAdi.BackColor = System.Drawing.Color.Transparent;
+            this.lblAnaSayfa_FirmaAdi.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblAnaSayfa_FirmaAdi.ForeColor = System.Drawing.Color.Black;
+            this.lblAnaSayfa_FirmaAdi.Location = new System.Drawing.Point(3, 28);
+            this.lblAnaSayfa_FirmaAdi.Name = "lblAnaSayfa_FirmaAdi";
+            this.lblAnaSayfa_FirmaAdi.Size = new System.Drawing.Size(88, 19);
+            this.lblAnaSayfa_FirmaAdi.TabIndex = 6;
+            this.lblAnaSayfa_FirmaAdi.Text = "Firma Adı:";
+            // 
+            // btnAnaSayfa_yaziReklamMod
+            // 
+            this.btnAnaSayfa_yaziReklamMod.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnAnaSayfa_yaziReklamMod.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnAnaSayfa_yaziReklamMod.Location = new System.Drawing.Point(809, 456);
+            this.btnAnaSayfa_yaziReklamMod.Name = "btnAnaSayfa_yaziReklamMod";
+            this.btnAnaSayfa_yaziReklamMod.Size = new System.Drawing.Size(636, 114);
+            this.btnAnaSayfa_yaziReklamMod.TabIndex = 1;
+            this.btnAnaSayfa_yaziReklamMod.Text = "Yazı Reklam Modu";
+            this.btnAnaSayfa_yaziReklamMod.UseCustomBackColor = true;
+            this.btnAnaSayfa_yaziReklamMod.UseSelectable = true;
+            this.btnAnaSayfa_yaziReklamMod.Click += new System.EventHandler(this.btnAnaSayfa_yaziReklamMod_Click);
+            // 
+            // btnAnaSayfa_resimReklamMod
+            // 
+            this.btnAnaSayfa_resimReklamMod.BackColor = System.Drawing.Color.LightCoral;
+            this.btnAnaSayfa_resimReklamMod.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnAnaSayfa_resimReklamMod.Location = new System.Drawing.Point(96, 456);
+            this.btnAnaSayfa_resimReklamMod.Name = "btnAnaSayfa_resimReklamMod";
+            this.btnAnaSayfa_resimReklamMod.Size = new System.Drawing.Size(636, 114);
+            this.btnAnaSayfa_resimReklamMod.TabIndex = 0;
+            this.btnAnaSayfa_resimReklamMod.Text = "Resim Reklam Modu";
+            this.btnAnaSayfa_resimReklamMod.UseCustomBackColor = true;
+            this.btnAnaSayfa_resimReklamMod.UseSelectable = true;
+            this.btnAnaSayfa_resimReklamMod.Click += new System.EventHandler(this.metroButton2_Click);
+            // 
             // tabPageUrunReklam
             // 
+            this.tabPageUrunReklam.Controls.Add(this.btnResimReklamDurdur);
+            this.tabPageUrunReklam.Controls.Add(this.btnResimReklamBaslat);
             this.tabPageUrunReklam.Controls.Add(this.gboxUrunEkle);
             this.tabPageUrunReklam.Controls.Add(this.gboxArama);
             this.tabPageUrunReklam.Controls.Add(this.dataGridUrunler);
             this.tabPageUrunReklam.HorizontalScrollbarBarColor = true;
             this.tabPageUrunReklam.HorizontalScrollbarHighlightOnWheel = false;
             this.tabPageUrunReklam.HorizontalScrollbarSize = 10;
-            this.tabPageUrunReklam.Location = new System.Drawing.Point(4, 38);
+            this.tabPageUrunReklam.Location = new System.Drawing.Point(4, 44);
             this.tabPageUrunReklam.Name = "tabPageUrunReklam";
-            this.tabPageUrunReklam.Size = new System.Drawing.Size(1540, 890);
+            this.tabPageUrunReklam.Size = new System.Drawing.Size(1540, 884);
             this.tabPageUrunReklam.TabIndex = 2;
             this.tabPageUrunReklam.Text = "Ürün Reklamlar";
             this.tabPageUrunReklam.VerticalScrollbarBarColor = true;
             this.tabPageUrunReklam.VerticalScrollbarHighlightOnWheel = false;
             this.tabPageUrunReklam.VerticalScrollbarSize = 10;
             // 
+            // btnResimReklamDurdur
+            // 
+            this.btnResimReklamDurdur.BackColor = System.Drawing.Color.Gray;
+            this.btnResimReklamDurdur.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnResimReklamDurdur.Location = new System.Drawing.Point(243, 369);
+            this.btnResimReklamDurdur.Name = "btnResimReklamDurdur";
+            this.btnResimReklamDurdur.Size = new System.Drawing.Size(531, 67);
+            this.btnResimReklamDurdur.TabIndex = 17;
+            this.btnResimReklamDurdur.Text = "Reklamı Durdur";
+            this.btnResimReklamDurdur.UseCustomBackColor = true;
+            this.btnResimReklamDurdur.UseSelectable = true;
+            this.btnResimReklamDurdur.Click += new System.EventHandler(this.btnResimReklamDurdur_Click);
+            // 
+            // btnResimReklamBaslat
+            // 
+            this.btnResimReklamBaslat.BackColor = System.Drawing.Color.Yellow;
+            this.btnResimReklamBaslat.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnResimReklamBaslat.Location = new System.Drawing.Point(243, 369);
+            this.btnResimReklamBaslat.Name = "btnResimReklamBaslat";
+            this.btnResimReklamBaslat.Size = new System.Drawing.Size(531, 67);
+            this.btnResimReklamBaslat.TabIndex = 16;
+            this.btnResimReklamBaslat.Text = "Reklam Başlat";
+            this.btnResimReklamBaslat.UseCustomBackColor = true;
+            this.btnResimReklamBaslat.UseSelectable = true;
+            this.btnResimReklamBaslat.Click += new System.EventHandler(this.btnResimReklamBaslat_Click);
+            // 
             // gboxUrunEkle
             // 
             this.gboxUrunEkle.BackColor = System.Drawing.Color.Transparent;
+            this.gboxUrunEkle.Controls.Add(this.lblReklamGecisSuresi);
+            this.gboxUrunEkle.Controls.Add(this.tbarResimReklamSure);
             this.gboxUrunEkle.Controls.Add(this.btnGozat);
             this.gboxUrunEkle.Controls.Add(this.pboxUrunOnizleme);
             this.gboxUrunEkle.Controls.Add(this.btnUrunEkle);
@@ -482,10 +677,33 @@
             this.gboxUrunEkle.ForeColor = System.Drawing.Color.DodgerBlue;
             this.gboxUrunEkle.Location = new System.Drawing.Point(6, 4);
             this.gboxUrunEkle.Name = "gboxUrunEkle";
-            this.gboxUrunEkle.Size = new System.Drawing.Size(768, 339);
+            this.gboxUrunEkle.Size = new System.Drawing.Size(768, 359);
             this.gboxUrunEkle.TabIndex = 0;
             this.gboxUrunEkle.TabStop = false;
             this.gboxUrunEkle.Text = "Ürün Ekle";
+            // 
+            // lblReklamGecisSuresi
+            // 
+            this.lblReklamGecisSuresi.AutoSize = true;
+            this.lblReklamGecisSuresi.ForeColor = System.Drawing.Color.Black;
+            this.lblReklamGecisSuresi.Location = new System.Drawing.Point(409, 336);
+            this.lblReklamGecisSuresi.Name = "lblReklamGecisSuresi";
+            this.lblReklamGecisSuresi.Size = new System.Drawing.Size(244, 19);
+            this.lblReklamGecisSuresi.TabIndex = 14;
+            this.lblReklamGecisSuresi.Text = "Reklam Geçiş Süresi: 10 Saniye";
+            // 
+            // tbarResimReklamSure
+            // 
+            this.tbarResimReklamSure.BackColor = System.Drawing.Color.White;
+            this.tbarResimReklamSure.Location = new System.Drawing.Point(324, 291);
+            this.tbarResimReklamSure.Maximum = 60;
+            this.tbarResimReklamSure.Minimum = 5;
+            this.tbarResimReklamSure.Name = "tbarResimReklamSure";
+            this.tbarResimReklamSure.Size = new System.Drawing.Size(438, 45);
+            this.tbarResimReklamSure.TabIndex = 13;
+            this.tbarResimReklamSure.TickFrequency = 5;
+            this.tbarResimReklamSure.Value = 5;
+            this.tbarResimReklamSure.Scroll += new System.EventHandler(this.tbarResimReklamSure_Scroll);
             // 
             // btnGozat
             // 
@@ -501,7 +719,7 @@
             // 
             this.pboxUrunOnizleme.Location = new System.Drawing.Point(324, 50);
             this.pboxUrunOnizleme.Name = "pboxUrunOnizleme";
-            this.pboxUrunOnizleme.Size = new System.Drawing.Size(438, 262);
+            this.pboxUrunOnizleme.Size = new System.Drawing.Size(438, 235);
             this.pboxUrunOnizleme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboxUrunOnizleme.TabIndex = 12;
             this.pboxUrunOnizleme.TabStop = false;
@@ -510,9 +728,9 @@
             // 
             this.btnUrunEkle.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnUrunEkle.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnUrunEkle.Location = new System.Drawing.Point(20, 270);
+            this.btnUrunEkle.Location = new System.Drawing.Point(20, 245);
             this.btnUrunEkle.Name = "btnUrunEkle";
-            this.btnUrunEkle.Size = new System.Drawing.Size(284, 42);
+            this.btnUrunEkle.Size = new System.Drawing.Size(284, 40);
             this.btnUrunEkle.TabIndex = 5;
             this.btnUrunEkle.Text = "Ürünü Ekle!";
             this.btnUrunEkle.UseCustomBackColor = true;
@@ -620,7 +838,7 @@
             this.dataGridUrunler.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridUrunler.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridUrunler.Location = new System.Drawing.Point(0, 442);
+            this.dataGridUrunler.Location = new System.Drawing.Point(0, 436);
             this.dataGridUrunler.Name = "dataGridUrunler";
             this.dataGridUrunler.ReadOnly = true;
             this.dataGridUrunler.Size = new System.Drawing.Size(1540, 448);
@@ -629,25 +847,31 @@
             // 
             // btnReklamTamEkran
             // 
+            this.btnReklamTamEkran.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReklamTamEkran.BackColor = System.Drawing.Color.RoyalBlue;
-            this.btnReklamTamEkran.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnReklamTamEkran.Location = new System.Drawing.Point(1578, 134);
+            this.btnReklamTamEkran.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnReklamTamEkran.Location = new System.Drawing.Point(1574, 92);
             this.btnReklamTamEkran.Name = "btnReklamTamEkran";
-            this.btnReklamTamEkran.Size = new System.Drawing.Size(62, 233);
+            this.btnReklamTamEkran.Size = new System.Drawing.Size(81, 431);
             this.btnReklamTamEkran.TabIndex = 1;
             this.btnReklamTamEkran.Text = "Reklamı\r\nTam \r\nEkran\r\nYap\r\n";
             this.btnReklamTamEkran.UseCustomBackColor = true;
             this.btnReklamTamEkran.UseSelectable = true;
             this.btnReklamTamEkran.Click += new System.EventHandler(this.btnReklamTamEkran_Click);
             // 
+            // colorDialogYaziReklam
+            // 
+            this.colorDialogYaziReklam.Color = System.Drawing.Color.White;
+            // 
             // btnReklamKucult
             // 
+            this.btnReklamKucult.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReklamKucult.BackColor = System.Drawing.Color.Coral;
-            this.btnReklamKucult.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnReklamKucult.Location = new System.Drawing.Point(1578, 134);
+            this.btnReklamKucult.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnReklamKucult.Location = new System.Drawing.Point(1574, 92);
             this.btnReklamKucult.Name = "btnReklamKucult";
-            this.btnReklamKucult.Size = new System.Drawing.Size(62, 233);
-            this.btnReklamKucult.TabIndex = 2;
+            this.btnReklamKucult.Size = new System.Drawing.Size(81, 431);
+            this.btnReklamKucult.TabIndex = 0;
             this.btnReklamKucult.Text = "Reklamı\r\nKüçült\r\n";
             this.btnReklamKucult.UseCustomBackColor = true;
             this.btnReklamKucult.UseSelectable = true;
@@ -673,9 +897,14 @@
             this.gboxYaziReklamEkle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackbarYaziBoyutu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarYaziSure)).EndInit();
+            this.tabPageAnaSayfa.ResumeLayout(false);
+            this.tabPageAnaSayfa.PerformLayout();
+            this.panelUrunReklam.ResumeLayout(false);
+            this.panelUrunReklam.PerformLayout();
             this.tabPageUrunReklam.ResumeLayout(false);
             this.gboxUrunEkle.ResumeLayout(false);
             this.gboxUrunEkle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbarResimReklamSure)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxUrunOnizleme)).EndInit();
             this.gboxArama.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUrunler)).EndInit();
@@ -684,10 +913,6 @@
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroTabControl tabControl;
-        private MetroFramework.Controls.MetroTabPage tabPageAnaSayfa;
-        private MetroFramework.Controls.MetroTabPage tabPageYaziReklam;
         private MetroFramework.Controls.MetroPanel panelYaziReklam;
         private System.Windows.Forms.Label lblYeniReklam;
         private System.Windows.Forms.Label lblGYaziReklam;
@@ -701,24 +926,20 @@
         private System.Windows.Forms.Label lblYaziReklamEkle_Yazi;
         private System.Windows.Forms.Label lblTrackBar;
         private MetroFramework.Controls.MetroButton btnReklamTamEkran;
-        private MetroFramework.Controls.MetroButton btnReklamKucult;
         private System.Windows.Forms.ColorDialog colorDialogYaziReklam;
         private MetroFramework.Controls.MetroButton btnYaziReklamYaziRenk;
         private System.Windows.Forms.Label label1;
-        private MetroFramework.Controls.MetroButton btnYaziReklamBaslat;
-        private MetroFramework.Controls.MetroButton btnReklamDurdur;
         private System.Windows.Forms.Button btnRENK;
         private System.Windows.Forms.Button btnYAZI_ARKAPLAN_RENK;
         private MetroFramework.Controls.MetroButton btnYaziReklamYaziArkaPlanRenk;
         private System.Windows.Forms.ColorDialog colorDialogYaziArkaPlan;
-        private System.Windows.Forms.Button button1;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.Button btnFORM_ARKAPLANRENK;
+        private MetroFramework.Controls.MetroButton btnYaziArkaPlanRenk;
         private System.Windows.Forms.Label lblYaziReklamEfektAyar;
         private MetroFramework.Controls.MetroCheckBox cboxYanipSonmeEfekt;
         private System.Windows.Forms.Label lblYaziReklamTrackBarBoyut;
         private System.Windows.Forms.TrackBar trackbarYaziBoyutu;
         private System.Windows.Forms.Label lblYaziReklam_YaziBoyutu;
-        private MetroFramework.Controls.MetroTabPage tabPageUrunReklam;
         private System.Windows.Forms.DataGridView dataGridUrunler;
         private MetroFramework.Controls.MetroTextBox tboxAramaUrunAdi;
         private System.Windows.Forms.GroupBox gboxArama;
@@ -731,6 +952,29 @@
         private System.Windows.Forms.RichTextBox tboxUrunEkle_UrunAciklama;
         private MetroFramework.Controls.MetroButton btnGozat;
         private System.Windows.Forms.PictureBox pboxUrunOnizleme;
+        public MetroFramework.Controls.MetroTabControl tabControl;
+        public MetroFramework.Controls.MetroTabPage tabPageUrunReklam;
+        public MetroFramework.Controls.MetroTabPage tabPageYaziReklam;
+        public MetroFramework.Controls.MetroTabPage tabPageAnaSayfa;
+        private System.Windows.Forms.ColorDialog colorDialogFormArkaPlan;
+        public MetroFramework.Controls.MetroButton btnYaziReklamBaslat;
+        public MetroFramework.Controls.MetroButton btnYaziReklamDurdur;
+        public MetroFramework.Controls.MetroButton btnResimReklamDurdur;
+        public MetroFramework.Controls.MetroButton btnResimReklamBaslat;
+        private System.Windows.Forms.Label lblReklamGecisSuresi;
+        private System.Windows.Forms.TrackBar tbarResimReklamSure;
+        private MetroFramework.Controls.MetroButton btnReklamKucult;
+        private System.Windows.Forms.Label lblAnaSayfa_ProgramAyarlari;
+        private MetroFramework.Controls.MetroPanel panelUrunReklam;
+        private System.Windows.Forms.TextBox tboxAnaSayfa_FirmaAdi;
+        private System.Windows.Forms.Label lblAnaSayfa_FirmaAdi;
+        private System.Windows.Forms.TextBox tboxAnaSayfa_Telefon;
+        private System.Windows.Forms.Label lblAnaSayfa_Telefon;
+        private System.Windows.Forms.TextBox tboxAnaSayfa_WebSite;
+        private System.Windows.Forms.Label lblAnaSayfa_WebSite;
+        private MetroFramework.Controls.MetroButton btnAnaSayfa_ayarKaydet;
+        public MetroFramework.Controls.MetroButton btnAnaSayfa_resimReklamMod;
+        public MetroFramework.Controls.MetroButton btnAnaSayfa_yaziReklamMod;
     }
 }
 

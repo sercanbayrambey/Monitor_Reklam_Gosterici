@@ -62,17 +62,17 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(1439, 122);
+            this.panelLogo.Size = new System.Drawing.Size(1439, 124);
             this.panelLogo.TabIndex = 1;
             // 
             // lblTaninTicaret
             // 
             this.lblTaninTicaret.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTaninTicaret.Font = new System.Drawing.Font("Monotype Corsiva", 90F);
+            this.lblTaninTicaret.Font = new System.Drawing.Font("Monotype Corsiva", 80F);
             this.lblTaninTicaret.ForeColor = System.Drawing.Color.White;
             this.lblTaninTicaret.Location = new System.Drawing.Point(0, 0);
             this.lblTaninTicaret.Name = "lblTaninTicaret";
-            this.lblTaninTicaret.Size = new System.Drawing.Size(1439, 122);
+            this.lblTaninTicaret.Size = new System.Drawing.Size(1439, 124);
             this.lblTaninTicaret.TabIndex = 0;
             this.lblTaninTicaret.Text = "Tanin Ticaret";
             this.lblTaninTicaret.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -168,11 +168,11 @@
 
         public System.Windows.Forms.Label lblYaziReklam;
         private System.Windows.Forms.Panel panelLogo;
-        private System.Windows.Forms.Label lblTaninTicaret;
         private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.Label lblTelefon;
-        private System.Windows.Forms.Label lblSite;
+        public System.Windows.Forms.Label lblTaninTicaret;
+        public System.Windows.Forms.Label lblTelefon;
+        public System.Windows.Forms.Label lblSite;
     }
 }

@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MetroFramework;
-using MetroFramework.Forms;
-using System.Threading;
 
 namespace TaninTicaret_Reklam
 {
@@ -18,8 +10,9 @@ namespace TaninTicaret_Reklam
         ReklamForm reklamForm;
         DB db;
         public YaziReklamlar yaziReklamlar;
+        public Settings settings;
         private string UrunImageDir;
-        private int SilinecekUrunID;
+        private int SecilenUrunID;
         public AnaForm()
         {
             InitializeComponent();
@@ -28,22 +21,39 @@ namespace TaninTicaret_Reklam
         private void AnaForm_Load(object sender, EventArgs e)
         {
             yaziReklamlar = new YaziReklamlar();
-            reklamForm = new ReklamForm(this);
             db = new DB();
-            reklamForm.Show();
-            reklamForm.lblYaziReklam.Text = "TEST";
             lblTrackBar.Text = tbarYaziSure.Value.ToString() + " Saniye";
             lblYaziReklamTrackBarBoyut.Text = trackbarYaziBoyutu.Value.ToString() + " Pixel";
-            btnReklamDurdur.Visible = false;
+            btnYaziReklamDurdur.Visible = false;
             btnYaziReklamBaslat.Visible = true;
-            ReklamiKucukEkranYap();
+            btnResimReklamBaslat.Visible = true;
+            btnResimReklamDurdur.Visible = false;
+            tabPageAnaSayfa.Focus();
+            tabPageAnaSayfa.Select();
+            tabControl.TabPages.Remove(tabPageUrunReklam);
+            tabControl.TabPages.Remove(tabPageYaziReklam);
+            lblReklamGecisSuresi.Text = "Reklam Geçiş Süresi: " + tbarResimReklamSure.Value.ToString() + " Saniye";
+            reklamForm = new ReklamForm(this);
+            reklamForm.Show();
             TabloTasarimiUygula();
-            UrunleriTabloyaCek();
+            AyarlariProgramaCek();
+            ReklamiKucukEkranYap();
+        }
+
+        private void AyarlariProgramaCek()
+        {
+            settings = db.AyarlariProgramaCek();
+            tboxAnaSayfa_FirmaAdi.Text = settings.SirketAdi;
+            tboxAnaSayfa_Telefon.Text = settings.TelefonNumarasi;
+            tboxAnaSayfa_WebSite.Text = settings.WebSitesi;
+            reklamForm.lblTaninTicaret.Text = settings.SirketAdi;
+            reklamForm.lblTelefon.Text = settings.TelefonNumarasi;
+            reklamForm.lblSite.Text = settings.WebSitesi;
         }
 
         private void btnYaziReklamEkle_Click(object sender, EventArgs e)
         {
-            yaziReklamlar.YaziReklamEkle(tboxYaziReklam.Text, tbarYaziSure.Value,colorDialogYaziReklam.Color,colorDialogYaziArkaPlan.Color,tboxYaziReklam.Lines.Count(),cboxYanipSonmeEfekt.Checked,trackbarYaziBoyutu.Value);
+            yaziReklamlar.YaziReklamEkle(tboxYaziReklam.Text, tbarYaziSure.Value,colorDialogYaziReklam.Color,colorDialogYaziArkaPlan.Color,tboxYaziReklam.Lines.Count(),cboxYanipSonmeEfekt.Checked,trackbarYaziBoyutu.Value,colorDialogFormArkaPlan.Color);
             YaziReklamlariYenile();
         }
 
@@ -83,7 +93,7 @@ namespace TaninTicaret_Reklam
             btnReklamKucult.Visible = false;
         }
 
-        private void UrunleriTabloyaCek(string query=null)
+        public void UrunleriTabloyaCek(string query=null)
         {
             if (query == null)
                 query = "SELECT TOP 50 * FROM tblResimReklamlar";
@@ -101,14 +111,14 @@ namespace TaninTicaret_Reklam
             dataGridUrunler.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridUrunler.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
             dataGridUrunler.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridUrunler.DefaultCellStyle.SelectionBackColor = Color.DarkTurquoise;
+            dataGridUrunler.DefaultCellStyle.SelectionBackColor = Color.DodgerBlue;
             dataGridUrunler.DefaultCellStyle.SelectionForeColor = Color.WhiteSmoke;
             dataGridUrunler.DefaultCellStyle.Font = new Font("Century Gothic", 15);
             dataGridUrunler.BackgroundColor = Color.White;
 
             dataGridUrunler.EnableHeadersVisualStyles = false;
             dataGridUrunler.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridUrunler.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(20, 25, 72);
+            dataGridUrunler.ColumnHeadersDefaultCellStyle.BackColor = Color.DodgerBlue;
             dataGridUrunler.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dataGridUrunler.AutoGenerateColumns = true;
         }
@@ -139,15 +149,11 @@ namespace TaninTicaret_Reklam
         private void btnYaziReklamBaslat_Click(object sender, EventArgs e)
         {
             reklamForm.YaziReklamBaslat();
-            btnYaziReklamBaslat.Visible = false;
-            btnReklamDurdur.Visible = true;
         }
 
         private void btnReklamDurdur_Click(object sender, EventArgs e)
         {
             reklamForm.YaziReklamDurdur();
-            btnYaziReklamBaslat.Visible = true;
-            btnReklamDurdur.Visible = false;
         }
 
         private void AnaForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -159,11 +165,6 @@ namespace TaninTicaret_Reklam
         {
             colorDialogYaziArkaPlan.ShowDialog();
             btnYAZI_ARKAPLAN_RENK.BackColor = colorDialogYaziArkaPlan.Color;
-        }
-
-        private void gboxYaziReklamEkle_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void trackbarYaziBoyutu_Scroll(object sender, EventArgs e)
@@ -204,6 +205,7 @@ namespace TaninTicaret_Reklam
             {
                 MessageBox.Show("Ürün başarıyla eklendi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 UrunleriTabloyaCek();
+                pboxUrunOnizleme.Image.Save(UrunImageDir);
                 tboxUrunEkle_UrunAdi.Text = String.Empty;
                 pboxUrunOnizleme.Image = null;
                 tboxUrunEkle_UrunAciklama.Text = String.Empty;
@@ -226,7 +228,7 @@ namespace TaninTicaret_Reklam
                     File = Image.FromFile(f.FileName);
                     pboxUrunOnizleme.Image = File;
                     UrunImageDir = "images\\" + f.SafeFileName;
-                    pboxUrunOnizleme.Image.Save("images" + "\\" + f.SafeFileName);
+                    
                 }
                 catch
                 {
@@ -248,7 +250,7 @@ namespace TaninTicaret_Reklam
 
                     if(clickedIndex>=0)
                     {
-                        SilinecekUrunID = Convert.ToInt32(dataGridUrunler.Rows[clickedIndex].Cells[0].Value);
+                        SecilenUrunID = Convert.ToInt32(dataGridUrunler.Rows[clickedIndex].Cells[0].Value);
                         string urunAd = dataGridUrunler.Rows[clickedIndex].Cells[1].Value.ToString();
                         ToolStripLabel tempToolStrip = new ToolStripLabel(urunAd);
                         tempToolStrip.ForeColor = Color.DodgerBlue;
@@ -256,7 +258,7 @@ namespace TaninTicaret_Reklam
                         clickMenu.Items.Insert(0, tempToolStrip);
                         clickMenu.Items.Insert(1, new ToolStripLabel("--------"));
                         clickMenu.Items.Add("Ürünü Sil");
-                        clickMenu.Items.Add("Ürünü Düzenle");
+                        clickMenu.Items.Add("Ürünü Ekranda Göster");
                     }
                     clickMenu.Show(dataGridUrunler, e.X, e.Y);
                     clickMenu.ItemClicked += new ToolStripItemClickedEventHandler(clickMenu_ItemCliked);
@@ -275,7 +277,7 @@ namespace TaninTicaret_Reklam
                 DialogResult dialogResult = MessageBox.Show("Silmek istediğinize emin misiniz?", "Silme İşlemi", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
-                   if(db.UrunSil(SilinecekUrunID))
+                   if(db.UrunSil(SecilenUrunID))
                     {
                         MessageBox.Show("Ürün başarıyla silindi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         UrunleriTabloyaCek();
@@ -288,7 +290,53 @@ namespace TaninTicaret_Reklam
                     return;
                 }
             }
+            else if(e.ClickedItem.Text.Equals("Ürünü Ekranda Göster"))
+            {
+                reklamForm.UrunuEkrandaGoster(SecilenUrunID);
+            }
             return;
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            reklamForm.ResimReklamModunaGec();
+        }
+
+        private void btnYaziArkaPlanRenk_Click(object sender, EventArgs e)
+        {
+            colorDialogFormArkaPlan.ShowDialog();
+            btnFORM_ARKAPLANRENK.BackColor = colorDialogFormArkaPlan.Color;
+        }
+
+        private void btnResimReklamDurdur_Click(object sender, EventArgs e)
+        {
+            reklamForm.ResimReklamDurdur();
+        }
+
+        private void btnResimReklamBaslat_Click(object sender, EventArgs e)
+        {
+            reklamForm.ResimReklamBaslat(tbarResimReklamSure.Value);
+        }
+
+        private void tbarResimReklamSure_Scroll(object sender, EventArgs e)
+        {
+            lblReklamGecisSuresi.Text = "Reklam Geçiş Süresi: " + tbarResimReklamSure.Value.ToString() + " Saniye";
+        }
+
+        private void btnAnaSayfa_ayarKaydet_Click(object sender, EventArgs e)
+        {
+            if(db.AyarlariKaydet(tboxAnaSayfa_FirmaAdi.Text, tboxAnaSayfa_WebSite.Text, tboxAnaSayfa_Telefon.Text))
+            {
+                MessageBox.Show("Ayarlar başarıyla kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AyarlariProgramaCek();
+            }
+            else
+                MessageBox.Show("Ayarlar kaydedilirken bir hata oluştu veya hiç bir ayar değiştirmediniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void btnAnaSayfa_yaziReklamMod_Click(object sender, EventArgs e)
+        {
+            reklamForm.YaziReklamModunaGec();
         }
     }
 }

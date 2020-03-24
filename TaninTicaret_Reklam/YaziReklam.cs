@@ -13,6 +13,7 @@ namespace TaninTicaret_Reklam
         public int Sure { get;  set; }
         public Color Renk { get;  set; }
         public Color ArkaPlanRenk { get; set; }
+        public Color FormArkaPlanRenk { get; set; }
         public bool Efekt = true;
         public int SatirSayisi { get; set; }
         public int YaziBoyutu { get; set; }

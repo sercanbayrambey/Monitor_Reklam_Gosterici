@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 namespace TaninTicaret_Reklam
 {
 
-     public class DB
+     class DB
     {
         private SqlConnection con;
         private SqlCommand cmd;
@@ -113,6 +113,30 @@ namespace TaninTicaret_Reklam
             }
             
             return dt;
+        }
+
+        public Settings AyarlariProgramaCek()
+        {
+            var settings = new Settings();
+            string query = "SELECT * FROM tblProgramAyar";
+            this.Connect();
+           SqlDataReader dr =this.GetQuery(query);
+            if(dr.Read())
+            {
+                settings.SirketAdi = dr["ayar_sirketad"].ToString();
+                settings.TelefonNumarasi = dr["ayar_telefon"].ToString();
+                settings.WebSitesi = dr["ayar_website"].ToString();
+            }
+            this.Close();
+            return settings;
+        }
+
+        public bool AyarlariKaydet(string sirketAdi,string site,string telefon)
+        {
+            string query = String.Format("UPDATE tblProgramAyar SET ayar_sirketad = '{0}',ayar_website ='{1}',ayar_telefon='{2}' WHERE ayar_id=1", sirketAdi, site, telefon);
+            if (this.SetQuery(query) != 0)
+                return true;
+            return false;
         }
 
         public void Close()

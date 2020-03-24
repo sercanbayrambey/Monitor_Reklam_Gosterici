@@ -13,6 +13,7 @@ namespace TaninTicaret_Reklam
 
         public List<ucUrunOzellik> ResimReklamList { get; set; }
         private DB db;
+        public int GecmeSuresi { get; set; }
         public ResimReklamlar()
         {
             ResimReklamList = new List<ucUrunOzellik>();
@@ -34,6 +35,7 @@ namespace TaninTicaret_Reklam
                 urun.UrunAd = dr["urun_ad"].ToString();
                 urun.UrunAciklama = dr["urun_aciklama"].ToString();
                 urun.UrunResimYol = dr["urun_resim_yol"].ToString();
+                urun.UrunID = Convert.ToInt32(dr["reklam_id"]);
                 urun.BilgileriFormaCek();
                 ResimReklamList.Add(urun);
             }

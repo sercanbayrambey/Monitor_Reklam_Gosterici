@@ -15,7 +15,7 @@ namespace TaninTicaret_Reklam
             yaziReklamList = new List<YaziReklam>();
         }
 
-        public bool YaziReklamEkle(string yazi,int sure,Color renk,Color arkaPlanRenk,int satirSayisi,bool yanipSonmeEfekti,int boyut)
+        public bool YaziReklamEkle(string yazi,int sure,Color renk,Color arkaPlanRenk,int satirSayisi,bool yanipSonmeEfekti,int boyut,Color formArkaPlan)
         {
             if (yazi == String.Empty || sure < 0)
             {
@@ -31,7 +31,8 @@ namespace TaninTicaret_Reklam
                     ArkaPlanRenk = arkaPlanRenk,
                     Efekt = yanipSonmeEfekti,
                     SatirSayisi = satirSayisi,
-                    YaziBoyutu = boyut
+                    YaziBoyutu = boyut,
+                    FormArkaPlanRenk = formArkaPlan
                 };
                 yaziReklamList.Add(yaziReklam);
                 return true;
