@@ -1,11 +1,11 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace TaninTicaret_Reklam
 {
@@ -68,8 +68,8 @@ namespace TaninTicaret_Reklam
             SqlDataReader dr = this.GetQuery(getImageQuery);
             dr.Read();
             string resim_yol = dr["urun_resim_yol"].ToString();
-            if(File.Exists(resim_yol))
-                File.Delete(resim_yol);
+            DosyaSil(resim_yol);
+            
             if (this.SetQuery(query) != 0)
             {
                 this.Close();
@@ -78,6 +78,24 @@ namespace TaninTicaret_Reklam
             this.Close();
             return false;
 
+        }
+
+        public bool DosyaSil(string dir)
+        {
+            try
+            {
+                if (File.Exists(dir))
+                {
+                    File.Delete(dir);
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+            
         }
 
         public SqlDataReader GetQuery(string query)
@@ -134,6 +152,14 @@ namespace TaninTicaret_Reklam
         public bool AyarlariKaydet(string sirketAdi,string site,string telefon)
         {
             string query = String.Format("UPDATE tblProgramAyar SET ayar_sirketad = '{0}',ayar_website ='{1}',ayar_telefon='{2}' WHERE ayar_id=1", sirketAdi, site, telefon);
+            if (this.SetQuery(query) != 0)
+                return true;
+            return false;
+        }
+
+        public bool UrunuDuzenle(string urunAd, string urunAciklama, string urunResimYol,int id)
+        {
+            string query = String.Format("UPDATE tblResimReklamlar SET urun_ad = '{0}',urun_aciklama='{1}',urun_resim_yol='{2}' WHERE reklam_id={3}", urunAd,urunAciklama,urunResimYol,id);
             if (this.SetQuery(query) != 0)
                 return true;
             return false;

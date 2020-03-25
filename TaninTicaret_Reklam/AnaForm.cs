@@ -11,8 +11,9 @@ namespace TaninTicaret_Reklam
         DB db;
         public YaziReklamlar yaziReklamlar;
         public Settings settings;
-        private string UrunImageDir;
+        private string UrunImageDir,EskiResimYolu;
         private int SecilenUrunID;
+        private int SecilenUrunRowIndex;
         public AnaForm()
         {
             InitializeComponent();
@@ -43,13 +44,33 @@ namespace TaninTicaret_Reklam
 
         private void AyarlariProgramaCek()
         {
-            settings = db.AyarlariProgramaCek();
-            tboxAnaSayfa_FirmaAdi.Text = settings.SirketAdi;
-            tboxAnaSayfa_Telefon.Text = settings.TelefonNumarasi;
-            tboxAnaSayfa_WebSite.Text = settings.WebSitesi;
-            reklamForm.lblTaninTicaret.Text = settings.SirketAdi;
-            reklamForm.lblTelefon.Text = settings.TelefonNumarasi;
-            reklamForm.lblSite.Text = settings.WebSitesi;
+            try
+            {
+                settings = db.AyarlariProgramaCek();
+                tboxAnaSayfa_FirmaAdi.Text = settings.SirketAdi;
+                tboxAnaSayfa_Telefon.Text = settings.TelefonNumarasi;
+                tboxAnaSayfa_WebSite.Text = settings.WebSitesi;
+                reklamForm.lblTaninTicaret.Text = settings.SirketAdi;
+                reklamForm.lblTelefon.Text = settings.TelefonNumarasi;
+                reklamForm.lblSite.Text = settings.WebSitesi;
+            }
+            catch
+            {
+                MessageBox.Show("Veritabanı bağlantısı sırasında bir hata oluştu." ,"Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
+        }
+
+        private void DuzenlemePaneliniAc()
+        {
+            UrunImageDir = dataGridUrunler.Rows[SecilenUrunRowIndex].Cells[3].Value.ToString();
+            tbox_AnaSayfaDuzenle_urunAd.Text= dataGridUrunler.Rows[SecilenUrunRowIndex].Cells[1].Value.ToString();
+            tbox_AnaSayfaDuzenle_urunAciklama.Text = dataGridUrunler.Rows[SecilenUrunRowIndex].Cells[2].Value.ToString();
+            pboxAnaSayfa_urunDuzenle_resim.ImageLocation = dataGridUrunler.Rows[SecilenUrunRowIndex].Cells[3].Value.ToString();
+            EskiResimYolu = pboxAnaSayfa_urunDuzenle_resim.ImageLocation;
+            gboxUrunDuzenle.Visible = true;
+
+
         }
 
         private void btnYaziReklamEkle_Click(object sender, EventArgs e)
@@ -96,9 +117,17 @@ namespace TaninTicaret_Reklam
 
         public void UrunleriTabloyaCek(string query=null)
         {
+            try
+            {
+
             if (query == null)
                 query = "SELECT TOP 50 * FROM tblResimReklamlar";
             dataGridUrunler.DataSource = db.GetQueryDataTable(query);
+            }
+            catch
+            {
+                MessageBox.Show("Veritabanı bağlantısı sırasında bir hata oluştu." ,"Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void UrunAra(string urunAdi)
@@ -225,6 +254,7 @@ namespace TaninTicaret_Reklam
         {
             Image File;
             OpenFileDialog f = new OpenFileDialog();
+            Button btn = (Button)sender;
             f.Filter = "Resim Dosyalari (*.jpg, *.png) | *.jpg; *.png";
 
             if (f.ShowDialog() == DialogResult.OK)
@@ -232,7 +262,10 @@ namespace TaninTicaret_Reklam
                 try
                 {
                     File = Image.FromFile(f.FileName);
-                    pboxUrunOnizleme.Image = File;
+                    if (btn == btnGozat)
+                        pboxUrunOnizleme.Image = File;
+                    else
+                        pboxAnaSayfa_urunDuzenle_resim.Image = File;
                     UrunImageDir = "images\\" + f.SafeFileName;
                     
                 }
@@ -257,6 +290,7 @@ namespace TaninTicaret_Reklam
                     if(clickedIndex>=0)
                     {
                         SecilenUrunID = Convert.ToInt32(dataGridUrunler.Rows[clickedIndex].Cells[0].Value);
+                        SecilenUrunRowIndex = clickedIndex;
                         string urunAd = dataGridUrunler.Rows[clickedIndex].Cells[1].Value.ToString();
                         ToolStripLabel tempToolStrip = new ToolStripLabel(urunAd);
                         tempToolStrip.ForeColor = Color.DodgerBlue;
@@ -264,6 +298,7 @@ namespace TaninTicaret_Reklam
                         clickMenu.Items.Insert(0, tempToolStrip);
                         clickMenu.Items.Insert(1, new ToolStripLabel("--------"));
                         clickMenu.Items.Add("Ürünü Sil");
+                        clickMenu.Items.Add("Ürünü Düzenle");
                         clickMenu.Items.Add("Ürünü Ekranda Göster");
                     }
                     clickMenu.Show(dataGridUrunler, e.X, e.Y);
@@ -300,12 +335,11 @@ namespace TaninTicaret_Reklam
             {
                 reklamForm.UrunuEkrandaGoster(SecilenUrunID);
             }
+            else if (e.ClickedItem.Text.Equals("Ürünü Düzenle"))
+            {
+                DuzenlemePaneliniAc();
+            }
             return;
-        }
-
-        private void metroButton2_Click(object sender, EventArgs e)
-        {
-            reklamForm.ResimReklamModunaGec();
         }
 
         private void btnYaziArkaPlanRenk_Click(object sender, EventArgs e)
@@ -344,5 +378,36 @@ namespace TaninTicaret_Reklam
         {
             reklamForm.YaziReklamModunaGec();
         }
+
+        private void btnAnaSayfa_resimReklamMod_Click(object sender, EventArgs e)
+        {
+            reklamForm.ResimReklamModunaGec();
+        }
+
+        private void btn_AnaSayfaDuzenle_Kaydet_Click(object sender, EventArgs e)
+        {
+            gboxUrunDuzenle.Visible = false;
+            if(tbox_AnaSayfaDuzenle_urunAd.Text == String.Empty || pboxAnaSayfa_urunDuzenle_resim.ImageLocation ==String.Empty)
+            {
+                MessageBox.Show("Lütfen tüm alanları doldurunuz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if(db.UrunuDuzenle(tbox_AnaSayfaDuzenle_urunAd.Text,tbox_AnaSayfaDuzenle_urunAciklama.Text,UrunImageDir,SecilenUrunID))
+            {
+                MessageBox.Show("Ürün başarıyla kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                pboxAnaSayfa_urunDuzenle_resim.Image.Save(UrunImageDir);
+                this.UrunleriTabloyaCek();
+                gboxUrunDuzenle.Visible = false;
+                if(UrunImageDir != EskiResimYolu)
+                    db.DosyaSil(EskiResimYolu);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Ürün kaydedilirken bir hata oluştu veya hiç bir özellik değiştirmediniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+        }
+
     }
 }

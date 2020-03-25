@@ -69,6 +69,15 @@
             this.btnAnaSayfa_yaziReklamMod = new MetroFramework.Controls.MetroButton();
             this.btnAnaSayfa_resimReklamMod = new MetroFramework.Controls.MetroButton();
             this.tabPageUrunReklam = new MetroFramework.Controls.MetroTabPage();
+            this.gboxUrunDuzenle = new System.Windows.Forms.GroupBox();
+            this.tbox_AnaSayfaDuzenle_Gozat = new MetroFramework.Controls.MetroButton();
+            this.pboxAnaSayfa_urunDuzenle_resim = new System.Windows.Forms.PictureBox();
+            this.btn_AnaSayfaDuzenle_Kaydet = new MetroFramework.Controls.MetroButton();
+            this.lbl_AnaSayfaDuzenle_urunResmi = new System.Windows.Forms.Label();
+            this.tbox_AnaSayfaDuzenle_urunAd = new System.Windows.Forms.TextBox();
+            this.lbl_AnaSayfaDuzenle_urunAciklama = new System.Windows.Forms.Label();
+            this.lbl_AnaSayfaDuzenle_urunAd = new System.Windows.Forms.Label();
+            this.tbox_AnaSayfaDuzenle_urunAciklama = new System.Windows.Forms.RichTextBox();
             this.btnResimReklamDurdur = new MetroFramework.Controls.MetroButton();
             this.btnResimReklamBaslat = new MetroFramework.Controls.MetroButton();
             this.gboxUrunEkle = new System.Windows.Forms.GroupBox();
@@ -99,6 +108,8 @@
             this.tabPageAnaSayfa.SuspendLayout();
             this.panelUrunReklam.SuspendLayout();
             this.tabPageUrunReklam.SuspendLayout();
+            this.gboxUrunDuzenle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxAnaSayfa_urunDuzenle_resim)).BeginInit();
             this.gboxUrunEkle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarResimReklamSure)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxUrunOnizleme)).BeginInit();
@@ -613,10 +624,11 @@
             this.btnAnaSayfa_resimReklamMod.Text = "Resim Reklam Modu";
             this.btnAnaSayfa_resimReklamMod.UseCustomBackColor = true;
             this.btnAnaSayfa_resimReklamMod.UseSelectable = true;
-            this.btnAnaSayfa_resimReklamMod.Click += new System.EventHandler(this.metroButton2_Click);
+            this.btnAnaSayfa_resimReklamMod.Click += new System.EventHandler(this.btnAnaSayfa_resimReklamMod_Click);
             // 
             // tabPageUrunReklam
             // 
+            this.tabPageUrunReklam.Controls.Add(this.gboxUrunDuzenle);
             this.tabPageUrunReklam.Controls.Add(this.btnResimReklamDurdur);
             this.tabPageUrunReklam.Controls.Add(this.btnResimReklamBaslat);
             this.tabPageUrunReklam.Controls.Add(this.gboxUrunEkle);
@@ -633,6 +645,107 @@
             this.tabPageUrunReklam.VerticalScrollbarBarColor = true;
             this.tabPageUrunReklam.VerticalScrollbarHighlightOnWheel = false;
             this.tabPageUrunReklam.VerticalScrollbarSize = 10;
+            // 
+            // gboxUrunDuzenle
+            // 
+            this.gboxUrunDuzenle.BackColor = System.Drawing.Color.Transparent;
+            this.gboxUrunDuzenle.Controls.Add(this.tbox_AnaSayfaDuzenle_Gozat);
+            this.gboxUrunDuzenle.Controls.Add(this.pboxAnaSayfa_urunDuzenle_resim);
+            this.gboxUrunDuzenle.Controls.Add(this.btn_AnaSayfaDuzenle_Kaydet);
+            this.gboxUrunDuzenle.Controls.Add(this.lbl_AnaSayfaDuzenle_urunResmi);
+            this.gboxUrunDuzenle.Controls.Add(this.tbox_AnaSayfaDuzenle_urunAd);
+            this.gboxUrunDuzenle.Controls.Add(this.lbl_AnaSayfaDuzenle_urunAciklama);
+            this.gboxUrunDuzenle.Controls.Add(this.lbl_AnaSayfaDuzenle_urunAd);
+            this.gboxUrunDuzenle.Controls.Add(this.tbox_AnaSayfaDuzenle_urunAciklama);
+            this.gboxUrunDuzenle.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.gboxUrunDuzenle.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.gboxUrunDuzenle.Location = new System.Drawing.Point(780, 4);
+            this.gboxUrunDuzenle.Name = "gboxUrunDuzenle";
+            this.gboxUrunDuzenle.Size = new System.Drawing.Size(716, 359);
+            this.gboxUrunDuzenle.TabIndex = 18;
+            this.gboxUrunDuzenle.TabStop = false;
+            this.gboxUrunDuzenle.Text = "Ürünü Düzenle";
+            this.gboxUrunDuzenle.Visible = false;
+            // 
+            // tbox_AnaSayfaDuzenle_Gozat
+            // 
+            this.tbox_AnaSayfaDuzenle_Gozat.Location = new System.Drawing.Point(20, 216);
+            this.tbox_AnaSayfaDuzenle_Gozat.Name = "tbox_AnaSayfaDuzenle_Gozat";
+            this.tbox_AnaSayfaDuzenle_Gozat.Size = new System.Drawing.Size(107, 23);
+            this.tbox_AnaSayfaDuzenle_Gozat.TabIndex = 4;
+            this.tbox_AnaSayfaDuzenle_Gozat.Text = "Gözat";
+            this.tbox_AnaSayfaDuzenle_Gozat.UseSelectable = true;
+            this.tbox_AnaSayfaDuzenle_Gozat.Click += new System.EventHandler(this.btnGozat_Click);
+            // 
+            // pboxAnaSayfa_urunDuzenle_resim
+            // 
+            this.pboxAnaSayfa_urunDuzenle_resim.Location = new System.Drawing.Point(329, 23);
+            this.pboxAnaSayfa_urunDuzenle_resim.Name = "pboxAnaSayfa_urunDuzenle_resim";
+            this.pboxAnaSayfa_urunDuzenle_resim.Size = new System.Drawing.Size(293, 262);
+            this.pboxAnaSayfa_urunDuzenle_resim.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxAnaSayfa_urunDuzenle_resim.TabIndex = 12;
+            this.pboxAnaSayfa_urunDuzenle_resim.TabStop = false;
+            // 
+            // btn_AnaSayfaDuzenle_Kaydet
+            // 
+            this.btn_AnaSayfaDuzenle_Kaydet.BackColor = System.Drawing.Color.ForestGreen;
+            this.btn_AnaSayfaDuzenle_Kaydet.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_AnaSayfaDuzenle_Kaydet.ForeColor = System.Drawing.Color.Fuchsia;
+            this.btn_AnaSayfaDuzenle_Kaydet.Location = new System.Drawing.Point(20, 245);
+            this.btn_AnaSayfaDuzenle_Kaydet.Name = "btn_AnaSayfaDuzenle_Kaydet";
+            this.btn_AnaSayfaDuzenle_Kaydet.Size = new System.Drawing.Size(284, 40);
+            this.btn_AnaSayfaDuzenle_Kaydet.TabIndex = 5;
+            this.btn_AnaSayfaDuzenle_Kaydet.Text = "Ürünü Kaydet";
+            this.btn_AnaSayfaDuzenle_Kaydet.UseCustomBackColor = true;
+            this.btn_AnaSayfaDuzenle_Kaydet.UseSelectable = true;
+            this.btn_AnaSayfaDuzenle_Kaydet.Click += new System.EventHandler(this.btn_AnaSayfaDuzenle_Kaydet_Click);
+            // 
+            // lbl_AnaSayfaDuzenle_urunResmi
+            // 
+            this.lbl_AnaSayfaDuzenle_urunResmi.AutoSize = true;
+            this.lbl_AnaSayfaDuzenle_urunResmi.ForeColor = System.Drawing.Color.Black;
+            this.lbl_AnaSayfaDuzenle_urunResmi.Location = new System.Drawing.Point(16, 194);
+            this.lbl_AnaSayfaDuzenle_urunResmi.Name = "lbl_AnaSayfaDuzenle_urunResmi";
+            this.lbl_AnaSayfaDuzenle_urunResmi.Size = new System.Drawing.Size(97, 19);
+            this.lbl_AnaSayfaDuzenle_urunResmi.TabIndex = 3;
+            this.lbl_AnaSayfaDuzenle_urunResmi.Text = "Ürün Resmi:";
+            // 
+            // tbox_AnaSayfaDuzenle_urunAd
+            // 
+            this.tbox_AnaSayfaDuzenle_urunAd.Location = new System.Drawing.Point(20, 50);
+            this.tbox_AnaSayfaDuzenle_urunAd.MaxLength = 50;
+            this.tbox_AnaSayfaDuzenle_urunAd.Name = "tbox_AnaSayfaDuzenle_urunAd";
+            this.tbox_AnaSayfaDuzenle_urunAd.Size = new System.Drawing.Size(284, 27);
+            this.tbox_AnaSayfaDuzenle_urunAd.TabIndex = 0;
+            // 
+            // lbl_AnaSayfaDuzenle_urunAciklama
+            // 
+            this.lbl_AnaSayfaDuzenle_urunAciklama.AutoSize = true;
+            this.lbl_AnaSayfaDuzenle_urunAciklama.ForeColor = System.Drawing.Color.Black;
+            this.lbl_AnaSayfaDuzenle_urunAciklama.Location = new System.Drawing.Point(16, 85);
+            this.lbl_AnaSayfaDuzenle_urunAciklama.Name = "lbl_AnaSayfaDuzenle_urunAciklama";
+            this.lbl_AnaSayfaDuzenle_urunAciklama.Size = new System.Drawing.Size(139, 19);
+            this.lbl_AnaSayfaDuzenle_urunAciklama.TabIndex = 1;
+            this.lbl_AnaSayfaDuzenle_urunAciklama.Text = "Ürün Açıklaması:";
+            // 
+            // lbl_AnaSayfaDuzenle_urunAd
+            // 
+            this.lbl_AnaSayfaDuzenle_urunAd.AutoSize = true;
+            this.lbl_AnaSayfaDuzenle_urunAd.ForeColor = System.Drawing.Color.Black;
+            this.lbl_AnaSayfaDuzenle_urunAd.Location = new System.Drawing.Point(16, 23);
+            this.lbl_AnaSayfaDuzenle_urunAd.Name = "lbl_AnaSayfaDuzenle_urunAd";
+            this.lbl_AnaSayfaDuzenle_urunAd.Size = new System.Drawing.Size(79, 19);
+            this.lbl_AnaSayfaDuzenle_urunAd.TabIndex = 4;
+            this.lbl_AnaSayfaDuzenle_urunAd.Text = "Ürün Adı:";
+            // 
+            // tbox_AnaSayfaDuzenle_urunAciklama
+            // 
+            this.tbox_AnaSayfaDuzenle_urunAciklama.Location = new System.Drawing.Point(20, 112);
+            this.tbox_AnaSayfaDuzenle_urunAciklama.MaxLength = 255;
+            this.tbox_AnaSayfaDuzenle_urunAciklama.Name = "tbox_AnaSayfaDuzenle_urunAciklama";
+            this.tbox_AnaSayfaDuzenle_urunAciklama.Size = new System.Drawing.Size(284, 67);
+            this.tbox_AnaSayfaDuzenle_urunAciklama.TabIndex = 2;
+            this.tbox_AnaSayfaDuzenle_urunAciklama.Text = "";
             // 
             // btnResimReklamDurdur
             // 
@@ -717,9 +830,9 @@
             // 
             // pboxUrunOnizleme
             // 
-            this.pboxUrunOnizleme.Location = new System.Drawing.Point(324, 50);
+            this.pboxUrunOnizleme.Location = new System.Drawing.Point(324, 23);
             this.pboxUrunOnizleme.Name = "pboxUrunOnizleme";
-            this.pboxUrunOnizleme.Size = new System.Drawing.Size(438, 235);
+            this.pboxUrunOnizleme.Size = new System.Drawing.Size(293, 262);
             this.pboxUrunOnizleme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboxUrunOnizleme.TabIndex = 12;
             this.pboxUrunOnizleme.TabStop = false;
@@ -902,6 +1015,9 @@
             this.panelUrunReklam.ResumeLayout(false);
             this.panelUrunReklam.PerformLayout();
             this.tabPageUrunReklam.ResumeLayout(false);
+            this.gboxUrunDuzenle.ResumeLayout(false);
+            this.gboxUrunDuzenle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxAnaSayfa_urunDuzenle_resim)).EndInit();
             this.gboxUrunEkle.ResumeLayout(false);
             this.gboxUrunEkle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbarResimReklamSure)).EndInit();
@@ -975,6 +1091,15 @@
         public MetroFramework.Controls.MetroButton btnAnaSayfa_resimReklamMod;
         public MetroFramework.Controls.MetroButton btnAnaSayfa_yaziReklamMod;
         public System.Windows.Forms.TrackBar tbarResimReklamSure;
+        private System.Windows.Forms.GroupBox gboxUrunDuzenle;
+        private MetroFramework.Controls.MetroButton tbox_AnaSayfaDuzenle_Gozat;
+        private System.Windows.Forms.PictureBox pboxAnaSayfa_urunDuzenle_resim;
+        private MetroFramework.Controls.MetroButton btn_AnaSayfaDuzenle_Kaydet;
+        private System.Windows.Forms.Label lbl_AnaSayfaDuzenle_urunResmi;
+        private System.Windows.Forms.TextBox tbox_AnaSayfaDuzenle_urunAd;
+        private System.Windows.Forms.Label lbl_AnaSayfaDuzenle_urunAciklama;
+        private System.Windows.Forms.Label lbl_AnaSayfaDuzenle_urunAd;
+        private System.Windows.Forms.RichTextBox tbox_AnaSayfaDuzenle_urunAciklama;
     }
 }
 

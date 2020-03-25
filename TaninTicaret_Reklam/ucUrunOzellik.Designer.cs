@@ -46,14 +46,15 @@
             this.btnAyrac3 = new System.Windows.Forms.Button();
             this.btnAyrac5 = new System.Windows.Forms.Button();
             this.btnPBOX_LeftBorder = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pboxLogo = new System.Windows.Forms.PictureBox();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxUrun)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // metroPanel1
             // 
+            this.metroPanel1.BackColor = System.Drawing.SystemColors.WindowText;
             this.metroPanel1.Controls.Add(this.btnPBOX_TopBorder);
             this.metroPanel1.Controls.Add(this.btnPBOX_BottomBorder);
             this.metroPanel1.Controls.Add(this.btnPBOX_RightBorder);
@@ -129,11 +130,11 @@
             this.lblUrunAdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUrunAdi.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUrunAdi.Location = new System.Drawing.Point(53, 354);
+            this.lblUrunAdi.Location = new System.Drawing.Point(24, 354);
             this.lblUrunAdi.Name = "lblUrunAdi";
-            this.lblUrunAdi.Size = new System.Drawing.Size(299, 50);
+            this.lblUrunAdi.Size = new System.Drawing.Size(355, 102);
             this.lblUrunAdi.TabIndex = 1;
-            this.lblUrunAdi.Text = "ÜRÜN ADI";
+            this.lblUrunAdi.Text = "ÜRÜN ADI\r\nÜRÜN DOSYASI\r\n";
             this.lblUrunAdi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnBorderBottom
@@ -207,7 +208,7 @@
             this.btnAyrac.FlatAppearance.BorderSize = 0;
             this.btnAyrac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAyrac.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnAyrac.Location = new System.Drawing.Point(-9, 408);
+            this.btnAyrac.Location = new System.Drawing.Point(-9, 459);
             this.btnAyrac.Name = "btnAyrac";
             this.btnAyrac.Size = new System.Drawing.Size(416, 7);
             this.btnAyrac.TabIndex = 6;
@@ -218,7 +219,7 @@
             this.lblUrunOzellikBaslik.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUrunOzellikBaslik.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold);
-            this.lblUrunOzellikBaslik.Location = new System.Drawing.Point(19, 418);
+            this.lblUrunOzellikBaslik.Location = new System.Drawing.Point(19, 469);
             this.lblUrunOzellikBaslik.Name = "lblUrunOzellikBaslik";
             this.lblUrunOzellikBaslik.Size = new System.Drawing.Size(360, 34);
             this.lblUrunOzellikBaslik.TabIndex = 7;
@@ -235,7 +236,7 @@
             this.btnAyrac2.FlatAppearance.BorderSize = 0;
             this.btnAyrac2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAyrac2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnAyrac2.Location = new System.Drawing.Point(0, 455);
+            this.btnAyrac2.Location = new System.Drawing.Point(0, 506);
             this.btnAyrac2.Name = "btnAyrac2";
             this.btnAyrac2.Size = new System.Drawing.Size(416, 7);
             this.btnAyrac2.TabIndex = 8;
@@ -247,7 +248,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblOzellikler.Font = new System.Drawing.Font("Century Gothic", 16F);
             this.lblOzellikler.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.lblOzellikler.Location = new System.Drawing.Point(19, 465);
+            this.lblOzellikler.Location = new System.Drawing.Point(19, 523);
             this.lblOzellikler.Name = "lblOzellikler";
             this.lblOzellikler.Size = new System.Drawing.Size(360, 126);
             this.lblOzellikler.TabIndex = 10;
@@ -265,7 +266,7 @@
             this.btnAyrac3.FlatAppearance.BorderSize = 0;
             this.btnAyrac3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAyrac3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnAyrac3.Location = new System.Drawing.Point(3, 594);
+            this.btnAyrac3.Location = new System.Drawing.Point(3, 652);
             this.btnAyrac3.Name = "btnAyrac3";
             this.btnAyrac3.Size = new System.Drawing.Size(416, 10);
             this.btnAyrac3.TabIndex = 11;
@@ -302,23 +303,24 @@
             this.btnPBOX_LeftBorder.TabIndex = 14;
             this.btnPBOX_LeftBorder.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // pboxLogo
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pboxLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(19, 610);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(360, 124);
-            this.pictureBox1.TabIndex = 15;
-            this.pictureBox1.TabStop = false;
+            this.pboxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pboxLogo.Image")));
+            this.pboxLogo.Location = new System.Drawing.Point(62, 668);
+            this.pboxLogo.Name = "pboxLogo";
+            this.pboxLogo.Size = new System.Drawing.Size(275, 66);
+            this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxLogo.TabIndex = 15;
+            this.pboxLogo.TabStop = false;
             // 
             // ucUrunOzellik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pboxLogo);
             this.Controls.Add(this.btnPBOX_LeftBorder);
             this.Controls.Add(this.lblUrunOzellikBaslik);
             this.Controls.Add(this.button4);
@@ -336,7 +338,7 @@
             this.Size = new System.Drawing.Size(398, 783);
             this.metroPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pboxUrun)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -360,6 +362,6 @@
         private System.Windows.Forms.Button btnPBOX_BottomBorder;
         private System.Windows.Forms.Button btnPBOX_RightBorder;
         private System.Windows.Forms.Button btnPBOX_LeftBorder;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pboxLogo;
     }
 }

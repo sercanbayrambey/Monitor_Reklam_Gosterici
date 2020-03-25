@@ -90,6 +90,9 @@
       <DependentUpon>ReklamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ResimReklamlar.cs" />
+    <Compile Include="SB_Picturebox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="ucUrunOzellik.cs">
       <SubType>UserControl</SubType>
