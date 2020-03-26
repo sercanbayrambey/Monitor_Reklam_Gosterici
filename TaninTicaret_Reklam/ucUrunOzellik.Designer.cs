@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucUrunOzellik));
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.panelUrunLogo = new MetroFramework.Controls.MetroPanel();
             this.btnPBOX_TopBorder = new System.Windows.Forms.Button();
             this.btnPBOX_BottomBorder = new System.Windows.Forms.Button();
             this.btnPBOX_RightBorder = new System.Windows.Forms.Button();
-            this.pboxUrun = new System.Windows.Forms.PictureBox();
             this.lblUrunAdi = new System.Windows.Forms.Label();
             this.btnBorderBottom = new System.Windows.Forms.Button();
             this.btnBorderTop = new System.Windows.Forms.Button();
@@ -47,28 +46,26 @@
             this.btnAyrac5 = new System.Windows.Forms.Button();
             this.btnPBOX_LeftBorder = new System.Windows.Forms.Button();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
-            this.metroPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxUrun)).BeginInit();
+            this.panelUrunLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
             this.SuspendLayout();
             // 
-            // metroPanel1
+            // panelUrunLogo
             // 
-            this.metroPanel1.BackColor = System.Drawing.SystemColors.WindowText;
-            this.metroPanel1.Controls.Add(this.btnPBOX_TopBorder);
-            this.metroPanel1.Controls.Add(this.btnPBOX_BottomBorder);
-            this.metroPanel1.Controls.Add(this.btnPBOX_RightBorder);
-            this.metroPanel1.Controls.Add(this.pboxUrun);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(50, 19);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(299, 332);
-            this.metroPanel1.TabIndex = 0;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.panelUrunLogo.BackColor = System.Drawing.SystemColors.WindowText;
+            this.panelUrunLogo.Controls.Add(this.btnPBOX_TopBorder);
+            this.panelUrunLogo.Controls.Add(this.btnPBOX_BottomBorder);
+            this.panelUrunLogo.Controls.Add(this.btnPBOX_RightBorder);
+            this.panelUrunLogo.HorizontalScrollbarBarColor = true;
+            this.panelUrunLogo.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelUrunLogo.HorizontalScrollbarSize = 10;
+            this.panelUrunLogo.Location = new System.Drawing.Point(50, 19);
+            this.panelUrunLogo.Name = "panelUrunLogo";
+            this.panelUrunLogo.Size = new System.Drawing.Size(299, 332);
+            this.panelUrunLogo.TabIndex = 0;
+            this.panelUrunLogo.VerticalScrollbarBarColor = true;
+            this.panelUrunLogo.VerticalScrollbarHighlightOnWheel = false;
+            this.panelUrunLogo.VerticalScrollbarSize = 10;
             // 
             // btnPBOX_TopBorder
             // 
@@ -114,16 +111,6 @@
             this.btnPBOX_RightBorder.Size = new System.Drawing.Size(7, 332);
             this.btnPBOX_RightBorder.TabIndex = 15;
             this.btnPBOX_RightBorder.UseVisualStyleBackColor = false;
-            // 
-            // pboxUrun
-            // 
-            this.pboxUrun.Image = ((System.Drawing.Image)(resources.GetObject("pboxUrun.Image")));
-            this.pboxUrun.Location = new System.Drawing.Point(6, 6);
-            this.pboxUrun.Name = "pboxUrun";
-            this.pboxUrun.Size = new System.Drawing.Size(293, 326);
-            this.pboxUrun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxUrun.TabIndex = 2;
-            this.pboxUrun.TabStop = false;
             // 
             // lblUrunAdi
             // 
@@ -333,20 +320,16 @@
             this.Controls.Add(this.btnAyrac5);
             this.Controls.Add(this.lblOzellikler);
             this.Controls.Add(this.lblUrunAdi);
-            this.Controls.Add(this.metroPanel1);
+            this.Controls.Add(this.panelUrunLogo);
             this.Name = "ucUrunOzellik";
             this.Size = new System.Drawing.Size(398, 783);
-            this.metroPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pboxUrun)).EndInit();
+            this.panelUrunLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private MetroFramework.Controls.MetroPanel metroPanel1;
-        private System.Windows.Forms.PictureBox pboxUrun;
         private System.Windows.Forms.Label lblUrunAdi;
         private System.Windows.Forms.Button btnBorderBottom;
         private System.Windows.Forms.Button btnBorderTop;
@@ -363,5 +346,6 @@
         private System.Windows.Forms.Button btnPBOX_RightBorder;
         private System.Windows.Forms.Button btnPBOX_LeftBorder;
         private System.Windows.Forms.PictureBox pboxLogo;
+        public MetroFramework.Controls.MetroPanel panelUrunLogo;
     }
 }

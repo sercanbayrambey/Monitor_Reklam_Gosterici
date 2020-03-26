@@ -30,7 +30,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -90,9 +90,6 @@
       <DependentUpon>ReklamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ResimReklamlar.cs" />
-    <Compile Include="SB_Picturebox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="ucUrunOzellik.cs">
       <SubType>UserControl</SubType>

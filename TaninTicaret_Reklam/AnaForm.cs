@@ -263,11 +263,15 @@ namespace TaninTicaret_Reklam
                 {
                     File = Image.FromFile(f.FileName);
                     if (btn == btnGozat)
+                    {
                         pboxUrunOnizleme.Image = File;
+                    }
                     else
+                    {
                         pboxAnaSayfa_urunDuzenle_resim.Image = File;
-                    UrunImageDir = "images\\" + f.SafeFileName;
-                    
+                    }
+                    Random rnd = new Random();
+                    UrunImageDir = "images\\" + rnd.Next(0, 10000) + f.SafeFileName;
                 }
                 catch
                 {
@@ -321,6 +325,8 @@ namespace TaninTicaret_Reklam
                    if(db.UrunSil(SecilenUrunID))
                     {
                         MessageBox.Show("Ürün başarıyla silindi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        reklamForm.ResimReklamDurdur();
+                        reklamForm.ResimReklamBaslat(tbarYaziSure.Value);
                         UrunleriTabloyaCek();
                     }
                    else
@@ -395,6 +401,8 @@ namespace TaninTicaret_Reklam
             if(db.UrunuDuzenle(tbox_AnaSayfaDuzenle_urunAd.Text,tbox_AnaSayfaDuzenle_urunAciklama.Text,UrunImageDir,SecilenUrunID))
             {
                 MessageBox.Show("Ürün başarıyla kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                reklamForm.ResimReklamDurdur();
+                reklamForm.ResimReklamBaslat(tbarYaziSure.Value);
                 pboxAnaSayfa_urunDuzenle_resim.Image.Save(UrunImageDir);
                 this.UrunleriTabloyaCek();
                 gboxUrunDuzenle.Visible = false;
@@ -408,6 +416,38 @@ namespace TaninTicaret_Reklam
                 return;
             }
         }
+
+
+
+
+        /*private void CorrectExifOrientation(Image image)
+        {
+            if (image == null) return;
+            int orientationId = 0x0112;
+            if (image.PropertyIdList.Contains(orientationId))
+            {
+                var orientation = (int)image.GetPropertyItem(orientationId).Value[0];
+                var rotateFlip = RotateFlipType.RotateNoneFlipNone;
+                switch (orientation)
+                {
+                    case 1: rotateFlip = RotateFlipType.RotateNoneFlipNone; break;
+                    case 2: rotateFlip = RotateFlipType.RotateNoneFlipX; break;
+                    case 3: rotateFlip = RotateFlipType.Rotate180FlipNone; break;
+                    case 4: rotateFlip = RotateFlipType.Rotate180FlipX; break;
+                    case 5: rotateFlip = RotateFlipType.Rotate90FlipX; break;
+                    case 6: rotateFlip = RotateFlipType.Rotate90FlipNone; break;
+                    case 7: rotateFlip = RotateFlipType.Rotate270FlipX; break;
+                    case 8: rotateFlip = RotateFlipType.Rotate270FlipNone; break;
+                    default: rotateFlip = RotateFlipType.RotateNoneFlipNone; break;
+                }
+                if (rotateFlip != RotateFlipType.RotateNoneFlipNone)
+                {
+                    image.RotateFlip(rotateFlip);
+                    image.RemovePropertyItem(orientationId);
+                }
+            }
+        }*/
+
 
     }
 }
