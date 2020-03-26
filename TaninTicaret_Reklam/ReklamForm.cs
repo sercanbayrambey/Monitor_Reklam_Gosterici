@@ -35,8 +35,11 @@ namespace TaninTicaret_Reklam
 
         public void ReklamiTamEkranYap()
         {
-            ResimReklamDurdur();
-            ResimReklamBaslat(anaForm.tbarResimReklamSure.Value);
+            if(resimReklamTH!=null)
+            {
+                ResimReklamDurdur();
+                ResimReklamBaslat(anaForm.tbarResimReklamSure.Value);
+            }
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ControlBox = false;
@@ -199,7 +202,10 @@ namespace TaninTicaret_Reklam
         public void ResimReklamDurdur()
         {
             if(resimReklamTH!=null)
+            {
                 resimReklamTH.Abort();
+                resimReklamTH = null;
+            }
             panelContainer.Controls.Clear();
             anaForm.btnResimReklamBaslat.Visible = true;
             anaForm.btnResimReklamDurdur.Visible = false;
