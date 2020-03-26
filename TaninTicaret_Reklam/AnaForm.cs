@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace TaninTicaret_Reklam
 {
@@ -14,6 +15,7 @@ namespace TaninTicaret_Reklam
         private string UrunImageDir,EskiResimYolu;
         private int SecilenUrunID;
         private int SecilenUrunRowIndex;
+
         public AnaForm()
         {
             InitializeComponent();
@@ -21,6 +23,7 @@ namespace TaninTicaret_Reklam
 
         private void AnaForm_Load(object sender, EventArgs e)
         {
+            
             yaziReklamlar = new YaziReklamlar();
             db = new DB();
             lblTrackBar.Text = tbarYaziSure.Value.ToString() + " Saniye";
@@ -36,7 +39,7 @@ namespace TaninTicaret_Reklam
             lblReklamGecisSuresi.Text = "Reklam Geçiş Süresi: " + tbarResimReklamSure.Value.ToString() + " Saniye";
             reklamForm = new ReklamForm(this);
             reklamForm.Show();
-            this.WindowState = FormWindowState.Maximized;
+            //this.WindowState = FormWindowState.Maximized;
             TabloTasarimiUygula();
             AyarlariProgramaCek();
             ReklamiKucukEkranYap();
@@ -121,8 +124,8 @@ namespace TaninTicaret_Reklam
             {
 
             if (query == null)
-                query = "SELECT TOP 50 * FROM tblResimReklamlar";
-            dataGridUrunler.DataSource = db.GetQueryDataTable(query);
+                query = "SELECT * FROM tblResimReklamlar";
+            dataGridUrunler.DataSource = db.GetQueryDataTable(query).Tables[0].DefaultView;
             }
             catch
             {

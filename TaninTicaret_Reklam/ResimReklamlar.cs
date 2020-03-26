@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace TaninTicaret_Reklam
 {
@@ -22,7 +21,7 @@ namespace TaninTicaret_Reklam
 
         public List<ucUrunOzellik> ResimReklamlariCek()
         {
-            SqlDataReader dr;
+            SQLiteDataReader dr;
             ResimReklamList.Clear();
             string query = "SELECT * FROM tblResimReklamlar";
             if (!db.Connect())
