@@ -29,6 +29,9 @@ namespace TaninTicaret_Reklam
             pboxUrun.ImageLocation = UrunResimYol;
         }
 
+        private void panelUrunLogo_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }
