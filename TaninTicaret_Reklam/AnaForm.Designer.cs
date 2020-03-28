@@ -69,6 +69,8 @@
             this.btnAnaSayfa_yaziReklamMod = new MetroFramework.Controls.MetroButton();
             this.btnAnaSayfa_resimReklamMod = new MetroFramework.Controls.MetroButton();
             this.tabPageUrunReklam = new MetroFramework.Controls.MetroTabPage();
+            this.btnTumUrunleriGoruntule = new MetroFramework.Controls.MetroButton();
+            this.lblUrunListeBilgi = new System.Windows.Forms.Label();
             this.gboxUrunDuzenle = new System.Windows.Forms.GroupBox();
             this.tbox_AnaSayfaDuzenle_Gozat = new MetroFramework.Controls.MetroButton();
             this.pboxAnaSayfa_urunDuzenle_resim = new System.Windows.Forms.PictureBox();
@@ -628,6 +630,8 @@
             // 
             // tabPageUrunReklam
             // 
+            this.tabPageUrunReklam.Controls.Add(this.btnTumUrunleriGoruntule);
+            this.tabPageUrunReklam.Controls.Add(this.lblUrunListeBilgi);
             this.tabPageUrunReklam.Controls.Add(this.gboxUrunDuzenle);
             this.tabPageUrunReklam.Controls.Add(this.btnResimReklamDurdur);
             this.tabPageUrunReklam.Controls.Add(this.btnResimReklamBaslat);
@@ -646,6 +650,36 @@
             this.tabPageUrunReklam.VerticalScrollbarHighlightOnWheel = false;
             this.tabPageUrunReklam.VerticalScrollbarSize = 10;
             // 
+            // btnTumUrunleriGoruntule
+            // 
+            this.btnTumUrunleriGoruntule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTumUrunleriGoruntule.BackColor = System.Drawing.Color.Khaki;
+            this.btnTumUrunleriGoruntule.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnTumUrunleriGoruntule.ForeColor = System.Drawing.Color.Fuchsia;
+            this.btnTumUrunleriGoruntule.Location = new System.Drawing.Point(780, 407);
+            this.btnTumUrunleriGoruntule.Name = "btnTumUrunleriGoruntule";
+            this.btnTumUrunleriGoruntule.Size = new System.Drawing.Size(752, 29);
+            this.btnTumUrunleriGoruntule.TabIndex = 20;
+            this.btnTumUrunleriGoruntule.Text = "Tüm Ürünleri Görüntüle";
+            this.btnTumUrunleriGoruntule.UseCustomBackColor = true;
+            this.btnTumUrunleriGoruntule.UseSelectable = true;
+            this.btnTumUrunleriGoruntule.Click += new System.EventHandler(this.btnTumUrunleriGoruntule_Click);
+            // 
+            // lblUrunListeBilgi
+            // 
+            this.lblUrunListeBilgi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblUrunListeBilgi.AutoSize = true;
+            this.lblUrunListeBilgi.BackColor = System.Drawing.Color.Khaki;
+            this.lblUrunListeBilgi.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.lblUrunListeBilgi.ForeColor = System.Drawing.Color.Black;
+            this.lblUrunListeBilgi.Location = new System.Drawing.Point(780, 385);
+            this.lblUrunListeBilgi.Name = "lblUrunListeBilgi";
+            this.lblUrunListeBilgi.Size = new System.Drawing.Size(752, 19);
+            this.lblUrunListeBilgi.TabIndex = 19;
+            this.lblUrunListeBilgi.Text = "Sadece ilk 20 ürün görüntülenmektedir tüm ürünleri görüntülemek için aşağıdaki bu" +
+    "tona basınız.";
+            this.lblUrunListeBilgi.Click += new System.EventHandler(this.lblUrunListeBilgi_Click);
+            // 
             // gboxUrunDuzenle
             // 
             this.gboxUrunDuzenle.BackColor = System.Drawing.Color.Transparent;
@@ -661,7 +695,7 @@
             this.gboxUrunDuzenle.ForeColor = System.Drawing.Color.DodgerBlue;
             this.gboxUrunDuzenle.Location = new System.Drawing.Point(780, 4);
             this.gboxUrunDuzenle.Name = "gboxUrunDuzenle";
-            this.gboxUrunDuzenle.Size = new System.Drawing.Size(716, 359);
+            this.gboxUrunDuzenle.Size = new System.Drawing.Size(752, 359);
             this.gboxUrunDuzenle.TabIndex = 18;
             this.gboxUrunDuzenle.TabStop = false;
             this.gboxUrunDuzenle.Text = "Ürünü Düzenle";
@@ -713,7 +747,7 @@
             // tbox_AnaSayfaDuzenle_urunAd
             // 
             this.tbox_AnaSayfaDuzenle_urunAd.Location = new System.Drawing.Point(20, 50);
-            this.tbox_AnaSayfaDuzenle_urunAd.MaxLength = 50;
+            this.tbox_AnaSayfaDuzenle_urunAd.MaxLength = 32;
             this.tbox_AnaSayfaDuzenle_urunAd.Name = "tbox_AnaSayfaDuzenle_urunAd";
             this.tbox_AnaSayfaDuzenle_urunAd.Size = new System.Drawing.Size(284, 27);
             this.tbox_AnaSayfaDuzenle_urunAd.TabIndex = 0;
@@ -741,7 +775,7 @@
             // tbox_AnaSayfaDuzenle_urunAciklama
             // 
             this.tbox_AnaSayfaDuzenle_urunAciklama.Location = new System.Drawing.Point(20, 112);
-            this.tbox_AnaSayfaDuzenle_urunAciklama.MaxLength = 255;
+            this.tbox_AnaSayfaDuzenle_urunAciklama.MaxLength = 128;
             this.tbox_AnaSayfaDuzenle_urunAciklama.Name = "tbox_AnaSayfaDuzenle_urunAciklama";
             this.tbox_AnaSayfaDuzenle_urunAciklama.Size = new System.Drawing.Size(284, 67);
             this.tbox_AnaSayfaDuzenle_urunAciklama.TabIndex = 2;
@@ -863,7 +897,7 @@
             // tboxUrunEkle_UrunAdi
             // 
             this.tboxUrunEkle_UrunAdi.Location = new System.Drawing.Point(20, 50);
-            this.tboxUrunEkle_UrunAdi.MaxLength = 50;
+            this.tboxUrunEkle_UrunAdi.MaxLength = 32;
             this.tboxUrunEkle_UrunAdi.Name = "tboxUrunEkle_UrunAdi";
             this.tboxUrunEkle_UrunAdi.Size = new System.Drawing.Size(284, 27);
             this.tboxUrunEkle_UrunAdi.TabIndex = 0;
@@ -891,7 +925,7 @@
             // tboxUrunEkle_UrunAciklama
             // 
             this.tboxUrunEkle_UrunAciklama.Location = new System.Drawing.Point(20, 112);
-            this.tboxUrunEkle_UrunAciklama.MaxLength = 255;
+            this.tboxUrunEkle_UrunAciklama.MaxLength = 128;
             this.tboxUrunEkle_UrunAciklama.Name = "tboxUrunEkle_UrunAciklama";
             this.tboxUrunEkle_UrunAciklama.Size = new System.Drawing.Size(284, 67);
             this.tboxUrunEkle_UrunAciklama.TabIndex = 2;
@@ -951,10 +985,10 @@
             this.dataGridUrunler.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridUrunler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridUrunler.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridUrunler.Location = new System.Drawing.Point(0, 436);
+            this.dataGridUrunler.Location = new System.Drawing.Point(0, 442);
             this.dataGridUrunler.Name = "dataGridUrunler";
             this.dataGridUrunler.ReadOnly = true;
-            this.dataGridUrunler.Size = new System.Drawing.Size(1540, 448);
+            this.dataGridUrunler.Size = new System.Drawing.Size(1540, 442);
             this.dataGridUrunler.TabIndex = 2;
             this.dataGridUrunler.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridUrunler_MouseClick);
             // 
@@ -1015,6 +1049,7 @@
             this.panelUrunReklam.ResumeLayout(false);
             this.panelUrunReklam.PerformLayout();
             this.tabPageUrunReklam.ResumeLayout(false);
+            this.tabPageUrunReklam.PerformLayout();
             this.gboxUrunDuzenle.ResumeLayout(false);
             this.gboxUrunDuzenle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxAnaSayfa_urunDuzenle_resim)).EndInit();
@@ -1100,6 +1135,8 @@
         private System.Windows.Forms.Label lbl_AnaSayfaDuzenle_urunAciklama;
         private System.Windows.Forms.Label lbl_AnaSayfaDuzenle_urunAd;
         private System.Windows.Forms.RichTextBox tbox_AnaSayfaDuzenle_urunAciklama;
+        private MetroFramework.Controls.MetroButton btnTumUrunleriGoruntule;
+        private System.Windows.Forms.Label lblUrunListeBilgi;
     }
 }
 

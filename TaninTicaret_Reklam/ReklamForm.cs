@@ -18,6 +18,9 @@ namespace TaninTicaret_Reklam
         public Thread resimReklamTH;
         ResimReklamlar ResimReklam;
         List<ucUrunOzellik> ucUrunList;
+        ucUrunOzellik ucTekGosterilenUrun;
+        bool resimReklamStarted = false;
+        bool yaziReklamStarted = false;
 
         public ReklamForm(AnaForm anaForm)
         {
@@ -30,12 +33,12 @@ namespace TaninTicaret_Reklam
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.ControlBox = true;
-            
+            lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         }
 
         public void ReklamiTamEkranYap()
         {
-            if(resimReklamTH!=null)
+            if(resimReklamStarted)
             {
                 ResimReklamDurdur();
                 ResimReklamBaslat(anaForm.tbarResimReklamSure.Value);
@@ -55,9 +58,9 @@ namespace TaninTicaret_Reklam
 
         public void ResimReklamModunaGec()
         {
-            if(yaziReklamTH!=null)
+            if(resimReklamStarted)
                 YaziReklamDurdur();
-            if (resimReklamTH != null)
+            if (resimReklamStarted)
                 return;
             anaForm.UrunleriTabloyaCek();
             lblYaziReklam.Visible = false;
@@ -75,7 +78,7 @@ namespace TaninTicaret_Reklam
 
         public void YaziReklamModunaGec()
         {
-            if (resimReklamTH != null)
+            if (resimReklamStarted)
                 ResimReklamDurdur();
 
             anaForm.btnAnaSayfa_yaziReklamMod.Enabled = false;
@@ -101,8 +104,15 @@ namespace TaninTicaret_Reklam
 
         public void ResimReklamBaslat(int gecisSuresi)
         {
-            if (resimReklamTH != null)
+            if (resimReklamStarted)
                 ResimReklamDurdur();
+            if (yaziReklamStarted)
+                yaziReklamTH.Abort();
+
+            if (ucTekGosterilenUrun!=null)
+                ucTekGosterilenUrun.Dispose();
+
+            resimReklamStarted = true;
             ResimReklam = new ResimReklamlar();
             ResimReklam.GecmeSuresi = gecisSuresi*1000;
             panelContainer.Controls.Clear();
@@ -117,10 +127,11 @@ namespace TaninTicaret_Reklam
 
         public void ResimReklamGoster()
         {
-            ucUrunList = ResimReklam.ResimReklamlariCek();
-
-            while(true)
+           
+            while (resimReklamStarted)
             {
+                ucUrunList = null;
+                ucUrunList = ResimReklam.ResimReklamlariCek();
                 try
                 {
                     int j = 0;
@@ -139,27 +150,14 @@ namespace TaninTicaret_Reklam
                             continue;
                         }
 
-                       
-                        
-
                         panelContainer.Invoke((Action)(() =>
                         {
-                            ucItem.pboxUrun = new PictureBox();
-                            ucItem.pboxUrun.BackColor = System.Drawing.Color.White;
-                            ucItem.pboxUrun.Name = "pboxUrun";
-                            ucItem.pboxUrun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-                            ucItem.pboxUrun.Location = new System.Drawing.Point(13, 13);
-                            ucItem.pboxUrun.Size = new System.Drawing.Size(273, 306);
-                            ucItem.pboxUrun.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                            ucItem.pboxUrun.TabIndex = 2;
-                            ucItem.pboxUrun.TabStop = false;
-                            ucItem.panelUrunLogo.Controls.Add(ucItem.pboxUrun);
-                            ucItem.pboxUrun.Visible = true;
-                            ucItem.pboxUrun.ImageLocation = ucItem.UrunResimYol;
-                            ucItem.pboxUrun.BringToFront();
                             panelContainer.Controls.Add(ucItem);
                         }));
-                   
+
+
+
+
                         j++;
                         if((i+1)%4 == 0 && i!=0)
                         {
@@ -170,16 +168,19 @@ namespace TaninTicaret_Reklam
                             }));
                             
                             Thread.Sleep(ResimReklam.GecmeSuresi);
-                            
                             panelContainer.Invoke((Action)(() =>
                             {
-                               
                                 foreach (ucUrunOzellik item in panelContainer.Controls)
                                 {
-                                   try
+                                    try
                                     {
-                                        item.pboxUrun.Image.Dispose();
-                                        item.pboxUrun.Dispose();
+                                        if(resimReklamStarted && item.pboxUrun.Image !=null)
+                                        {
+                                            Image img = item.pboxUrun.Image;
+                                            item.pboxUrun.Image = null;
+                                            item.pboxUrun.Invalidate();
+
+                                        }
                                     }
                                     catch
                                     {
@@ -189,6 +190,7 @@ namespace TaninTicaret_Reklam
                                 panelContainer.Controls.Clear();
                                 
                             }));
+                         
                         }
                     }
                 }
@@ -201,63 +203,73 @@ namespace TaninTicaret_Reklam
 
         public void ResimReklamDurdur()
         {
-            if(resimReklamTH!=null)
+            if(resimReklamStarted)
             {
+                resimReklamStarted = false;
                 resimReklamTH.Abort();
-                resimReklamTH = null;
             }
-            panelContainer.Controls.Clear();
             anaForm.btnResimReklamBaslat.Visible = true;
             anaForm.btnResimReklamDurdur.Visible = false;
             anaForm.tbarResimReklamSure.Enabled = true;
-            /*ResimReklam.ResimReklamList.Clear();*/
+            panelContainer.Controls.Clear();
+           /* ucUrunList.Clear();
+            ResimReklam.ResimReklamList.Clear();*/
         }
 
 
         public void UrunuEkrandaGoster(int urunID)
         {
-            panelContainer.Controls.Clear();
-            int j = 2;
-            if (resimReklamTH != null)
-                ResimReklamDurdur();
-            else
-                ResimReklam = new ResimReklamlar();
-            ucUrunList = ResimReklam.ResimReklamlariCek();
-            ucUrunOzellik ucItem = ucUrunList.Find(u => u.UrunID == urunID);
-            ucItem.pboxUrun = new PictureBox();
-            ucItem.pboxUrun.BackColor = System.Drawing.Color.White;
-            ucItem.pboxUrun.Name = "pboxUrun";
-            ucItem.pboxUrun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            ucItem.pboxUrun.Location = new System.Drawing.Point(13, 13);
-            ucItem.pboxUrun.Size = new System.Drawing.Size(273, 306);
-            ucItem.pboxUrun.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ucItem.pboxUrun.TabIndex = 2;
-            ucItem.pboxUrun.TabStop = false;
-            ucItem.panelUrunLogo.Controls.Add(ucItem.pboxUrun);
-            ucItem.pboxUrun.Visible = true;
-            ucItem.pboxUrun.ImageLocation = ucItem.UrunResimYol;
-            ucItem.pboxUrun.BringToFront();
-            int b = (this.Size.Width - ucItem.Size.Width)/2;
-            ucItem.Location = new Point(b, 20);
-            panelContainer.Controls.Add(ucItem);
+            try
+            {
+                panelContainer.Controls.Clear();
+                if (resimReklamStarted)
+                    ResimReklamDurdur();
+                else
+                    ResimReklam = new ResimReklamlar();
+
+                ucUrunList = ResimReklam.ResimReklamlariCek();
+                ucTekGosterilenUrun = ucUrunList.Find(u => u.UrunID == urunID);
+                ucTekGosterilenUrun.pboxUrun = new PictureBox();
+                ucTekGosterilenUrun.pboxUrun.BackColor = System.Drawing.Color.White;
+                ucTekGosterilenUrun.pboxUrun.Name = "pboxUrun";
+                ucTekGosterilenUrun.pboxUrun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                ucTekGosterilenUrun.pboxUrun.Location = new System.Drawing.Point(13, 13);
+                ucTekGosterilenUrun.pboxUrun.Size = new System.Drawing.Size(273, 306);
+                ucTekGosterilenUrun.pboxUrun.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+                ucTekGosterilenUrun.pboxUrun.TabIndex = 2;
+                ucTekGosterilenUrun.pboxUrun.TabStop = false;
+                ucTekGosterilenUrun.panelUrunLogo.Controls.Add(ucTekGosterilenUrun.pboxUrun);
+                ucTekGosterilenUrun.pboxUrun.Visible = true;
+                ucTekGosterilenUrun.pboxUrun.ImageLocation = ucTekGosterilenUrun.UrunResimYol;
+                ucTekGosterilenUrun.pboxUrun.BringToFront();
+                int b = (this.Size.Width - ucTekGosterilenUrun.Size.Width)/2;
+                ucTekGosterilenUrun.Location = new Point(b, 20);
+                panelContainer.Controls.Add(ucTekGosterilenUrun);
+            }
+            catch
+            {
+                MessageBox.Show("Ürün gösterilemiyor lütfen ürünün resminin mevcut olduğuna emin olun. Sorun devam ederse program yöneticisne ulaşın.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         public void YaziReklamBaslat()
         {
-            if (yaziReklamTH != null)
+            if (yaziReklamStarted)
                 yaziReklamTH.Abort();
             anaForm.btnYaziReklamBaslat.Visible = false;
             anaForm.btnYaziReklamDurdur.Visible = true;
             yaziReklamTH = new Thread(new ThreadStart(YaziReklamGoster));
+            yaziReklamStarted = true;
             yaziReklamTH.Start();
         }
 
         public void YaziReklamDurdur()
         {
-            if(yaziReklamTH!=null)
+            if(yaziReklamStarted)
                 yaziReklamTH.Abort();
             anaForm.btnYaziReklamBaslat.Visible = true;
             anaForm.btnYaziReklamDurdur.Visible = false;
+            yaziReklamStarted = false;
         }
 
         private void YaziReklamGoster()
@@ -316,9 +328,9 @@ namespace TaninTicaret_Reklam
 
         private void ReklamForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(yaziReklamTH!=null)
+            if(yaziReklamStarted)
                 yaziReklamTH.Abort();
-            if(resimReklamTH!=null)
+            if(resimReklamStarted)
                 resimReklamTH.Abort();
             Application.Exit();
         }

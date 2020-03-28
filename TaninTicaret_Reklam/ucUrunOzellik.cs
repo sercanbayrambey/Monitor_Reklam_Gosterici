@@ -20,14 +20,13 @@ namespace TaninTicaret_Reklam
         public int UrunID { get; set; }
         public string UrunAciklama { get; set; }
         public string UrunResimYol { get; set; }
-        public PictureBox pboxUrun { get; set; }
 
         public void BilgileriFormaCek()
         {
 
             lblUrunAdi.Text = UrunAd;
             lblOzellikler.Text = UrunAciklama;
-            //pboxUrun.ImageLocation = UrunResimYol;
+            pboxUrun.ImageLocation = UrunResimYol;
         }
 
 

@@ -132,7 +132,7 @@
             this.lblDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDate.Font = new System.Drawing.Font("Arial", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblDate.ForeColor = System.Drawing.Color.White;
-            this.lblDate.Location = new System.Drawing.Point(353, 2);
+            this.lblDate.Location = new System.Drawing.Point(363, 2);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(733, 97);
             this.lblDate.TabIndex = 1;

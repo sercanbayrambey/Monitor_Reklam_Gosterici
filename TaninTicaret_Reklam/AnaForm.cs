@@ -43,6 +43,7 @@ namespace TaninTicaret_Reklam
             TabloTasarimiUygula();
             AyarlariProgramaCek();
             ReklamiKucukEkranYap();
+           
         }
 
         private void AyarlariProgramaCek()
@@ -56,6 +57,7 @@ namespace TaninTicaret_Reklam
                 reklamForm.lblTaninTicaret.Text = settings.SirketAdi;
                 reklamForm.lblTelefon.Text = settings.TelefonNumarasi;
                 reklamForm.lblSite.Text = settings.WebSitesi;
+                this.Text = settings.SirketAdi + " Reklam Yönetim Uygulaması";
             }
             catch
             {
@@ -66,12 +68,19 @@ namespace TaninTicaret_Reklam
 
         private void DuzenlemePaneliniAc()
         {
-            UrunImageDir = dataGridUrunler.Rows[SecilenUrunRowIndex].Cells[3].Value.ToString();
-            tbox_AnaSayfaDuzenle_urunAd.Text= dataGridUrunler.Rows[SecilenUrunRowIndex].Cells[1].Value.ToString();
-            tbox_AnaSayfaDuzenle_urunAciklama.Text = dataGridUrunler.Rows[SecilenUrunRowIndex].Cells[2].Value.ToString();
-            pboxAnaSayfa_urunDuzenle_resim.ImageLocation = dataGridUrunler.Rows[SecilenUrunRowIndex].Cells[3].Value.ToString();
-            EskiResimYolu = pboxAnaSayfa_urunDuzenle_resim.ImageLocation;
-            gboxUrunDuzenle.Visible = true;
+            try
+            {
+                UrunImageDir = dataGridUrunler.Rows[SecilenUrunRowIndex].Cells[3].Value.ToString();
+                tbox_AnaSayfaDuzenle_urunAd.Text= dataGridUrunler.Rows[SecilenUrunRowIndex].Cells[1].Value.ToString();
+                tbox_AnaSayfaDuzenle_urunAciklama.Text = dataGridUrunler.Rows[SecilenUrunRowIndex].Cells[2].Value.ToString();
+                pboxAnaSayfa_urunDuzenle_resim.ImageLocation = dataGridUrunler.Rows[SecilenUrunRowIndex].Cells[3].Value.ToString();
+                EskiResimYolu = pboxAnaSayfa_urunDuzenle_resim.ImageLocation;
+                gboxUrunDuzenle.Visible = true;
+            }
+            catch
+            {
+                pboxAnaSayfa_urunDuzenle_resim.ImageLocation = null;
+            }
 
 
         }
@@ -124,7 +133,7 @@ namespace TaninTicaret_Reklam
             {
 
             if (query == null)
-                query = "SELECT * FROM tblResimReklamlar";
+                query = "SELECT * FROM tblResimReklamlar LIMIT 20";
             dataGridUrunler.DataSource = db.GetQueryDataTable(query).Tables[0].DefaultView;
             }
             catch
@@ -136,7 +145,7 @@ namespace TaninTicaret_Reklam
         private void UrunAra(string urunAdi)
         {
             string query = String.Format("SELECT * FROM tblResimReklamlar WHERE urun_ad LIKE '%{0}%'", urunAdi);
-            dataGridUrunler.DataSource = db.GetQueryDataTable(query);
+            dataGridUrunler.DataSource = db.GetQueryDataTable(query).Tables[0].DefaultView;
         }
 
         private void TabloTasarimiUygula()
@@ -267,10 +276,12 @@ namespace TaninTicaret_Reklam
                     File = Image.FromFile(f.FileName);
                     if (btn == btnGozat)
                     {
+                        CorrectExifOrientation(File);
                         pboxUrunOnizleme.Image = File;
                     }
                     else
                     {
+                        CorrectExifOrientation(File);
                         pboxAnaSayfa_urunDuzenle_resim.Image = File;
                     }
                     Random rnd = new Random();
@@ -420,10 +431,18 @@ namespace TaninTicaret_Reklam
             }
         }
 
+        private void btnTumUrunleriGoruntule_Click(object sender, EventArgs e)
+        {
+            UrunleriTabloyaCek("SELECT * FROM tblResimReklamlar");
+            btnTumUrunleriGoruntule.Enabled = false;
+        }
 
+        private void lblUrunListeBilgi_Click(object sender, EventArgs e)
+        {
 
+        }
 
-        /*private void CorrectExifOrientation(Image image)
+        private void CorrectExifOrientation(Image image)
         {
             if (image == null) return;
             int orientationId = 0x0112;
@@ -449,7 +468,7 @@ namespace TaninTicaret_Reklam
                     image.RemovePropertyItem(orientationId);
                 }
             }
-        }*/
+        }
 
 
     }

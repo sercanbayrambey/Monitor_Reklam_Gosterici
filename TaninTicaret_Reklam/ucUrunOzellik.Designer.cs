@@ -46,13 +46,16 @@
             this.btnAyrac5 = new System.Windows.Forms.Button();
             this.btnPBOX_LeftBorder = new System.Windows.Forms.Button();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
+            this.pboxUrun = new System.Windows.Forms.PictureBox();
             this.panelUrunLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxUrun)).BeginInit();
             this.SuspendLayout();
             // 
             // panelUrunLogo
             // 
             this.panelUrunLogo.BackColor = System.Drawing.SystemColors.WindowText;
+            this.panelUrunLogo.Controls.Add(this.pboxUrun);
             this.panelUrunLogo.Controls.Add(this.btnPBOX_TopBorder);
             this.panelUrunLogo.Controls.Add(this.btnPBOX_BottomBorder);
             this.panelUrunLogo.Controls.Add(this.btnPBOX_RightBorder);
@@ -121,7 +124,7 @@
             this.lblUrunAdi.Name = "lblUrunAdi";
             this.lblUrunAdi.Size = new System.Drawing.Size(355, 102);
             this.lblUrunAdi.TabIndex = 1;
-            this.lblUrunAdi.Text = "ÜRÜN ADI\r\nÜRÜN DOSYASI\r\n";
+            this.lblUrunAdi.Text = "ON THE OTHER HAND, WE TESTING\r\n";
             this.lblUrunAdi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnBorderBottom
@@ -239,8 +242,8 @@
             this.lblOzellikler.Name = "lblOzellikler";
             this.lblOzellikler.Size = new System.Drawing.Size(360, 126);
             this.lblOzellikler.TabIndex = 10;
-            this.lblOzellikler.Text = "Özellik1: Bu ürün çok güzeldir.\r\nÖzellik2: Bu ürün inanılmazdır.\r\nÖzellik3: Bu ür" +
-    "ün mükemmeldir.\r\nÖzellik4: Can abi adamdır.";
+            this.lblOzellikler.Text = "On the other hand, we denounce with righteous indignation and dislike men who are" +
+    " so beguiled and demoralized by the charms of .";
             this.lblOzellikler.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnAyrac3
@@ -302,6 +305,19 @@
             this.pboxLogo.TabIndex = 15;
             this.pboxLogo.TabStop = false;
             // 
+            // pboxUrun
+            // 
+            this.pboxUrun.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pboxUrun.BackColor = System.Drawing.Color.White;
+            this.pboxUrun.Location = new System.Drawing.Point(13, 13);
+            this.pboxUrun.Name = "pboxUrun";
+            this.pboxUrun.Size = new System.Drawing.Size(273, 306);
+            this.pboxUrun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxUrun.TabIndex = 18;
+            this.pboxUrun.TabStop = false;
+            // 
             // ucUrunOzellik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,6 +341,7 @@
             this.Size = new System.Drawing.Size(398, 783);
             this.panelUrunLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxUrun)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -347,5 +364,6 @@
         private System.Windows.Forms.Button btnPBOX_LeftBorder;
         private System.Windows.Forms.PictureBox pboxLogo;
         public MetroFramework.Controls.MetroPanel panelUrunLogo;
+        public System.Windows.Forms.PictureBox pboxUrun;
     }
 }
