@@ -229,19 +229,6 @@ namespace TaninTicaret_Reklam
 
                 ucUrunList = ResimReklam.ResimReklamlariCek();
                 ucTekGosterilenUrun = ucUrunList.Find(u => u.UrunID == urunID);
-                ucTekGosterilenUrun.pboxUrun = new PictureBox();
-                ucTekGosterilenUrun.pboxUrun.BackColor = System.Drawing.Color.White;
-                ucTekGosterilenUrun.pboxUrun.Name = "pboxUrun";
-                ucTekGosterilenUrun.pboxUrun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-                ucTekGosterilenUrun.pboxUrun.Location = new System.Drawing.Point(13, 13);
-                ucTekGosterilenUrun.pboxUrun.Size = new System.Drawing.Size(273, 306);
-                ucTekGosterilenUrun.pboxUrun.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-                ucTekGosterilenUrun.pboxUrun.TabIndex = 2;
-                ucTekGosterilenUrun.pboxUrun.TabStop = false;
-                ucTekGosterilenUrun.panelUrunLogo.Controls.Add(ucTekGosterilenUrun.pboxUrun);
-                ucTekGosterilenUrun.pboxUrun.Visible = true;
-                ucTekGosterilenUrun.pboxUrun.ImageLocation = ucTekGosterilenUrun.UrunResimYol;
-                ucTekGosterilenUrun.pboxUrun.BringToFront();
                 int b = (this.Size.Width - ucTekGosterilenUrun.Size.Width)/2;
                 ucTekGosterilenUrun.Location = new Point(b, 20);
                 panelContainer.Controls.Add(ucTekGosterilenUrun);
