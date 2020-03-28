@@ -18,7 +18,7 @@ namespace TaninTicaret_Reklam
 
         public bool Connect()
         {
-            string query = @"Data Source=C:\Users\Sercan\source\repos\TaninTicaret_Reklam\TaninTicaret_Reklam\bin\Debug\TaninTicaret_Reklam.db;Version=3;";
+            string query = @"Data Source=TaninTicaret_Reklam.db;Version=3;";
             this.con = new SQLiteConnection(query);
             try
             {

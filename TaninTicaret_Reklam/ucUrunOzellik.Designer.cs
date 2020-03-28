@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.panelUrunLogo = new MetroFramework.Controls.MetroPanel();
+            this.btnPBOX_LeftBorder = new System.Windows.Forms.Button();
             this.pboxUrun = new System.Windows.Forms.PictureBox();
             this.btnPBOX_TopBorder = new System.Windows.Forms.Button();
-            this.btnPBOX_BottomBorder = new System.Windows.Forms.Button();
             this.btnPBOX_RightBorder = new System.Windows.Forms.Button();
+            this.btnPBOX_BottomBorder = new System.Windows.Forms.Button();
             this.lblUrunAdi = new System.Windows.Forms.Label();
             this.btnBorderBottom = new System.Windows.Forms.Button();
             this.btnBorderTop = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.btnAyrac2 = new System.Windows.Forms.Button();
             this.lblOzellikler = new System.Windows.Forms.Label();
             this.btnAyrac5 = new System.Windows.Forms.Button();
-            this.btnPBOX_LeftBorder = new System.Windows.Forms.Button();
             this.panelUrunLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxUrun)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +52,7 @@
             // 
             this.panelUrunLogo.BackColor = System.Drawing.SystemColors.WindowText;
             this.panelUrunLogo.Controls.Add(this.btnPBOX_LeftBorder);
+            this.panelUrunLogo.Controls.Add(this.btnPBOX_BottomBorder);
             this.panelUrunLogo.Controls.Add(this.pboxUrun);
             this.panelUrunLogo.Controls.Add(this.btnPBOX_TopBorder);
             this.panelUrunLogo.Controls.Add(this.btnPBOX_RightBorder);
@@ -60,12 +61,27 @@
             this.panelUrunLogo.HorizontalScrollbarSize = 10;
             this.panelUrunLogo.Location = new System.Drawing.Point(24, 19);
             this.panelUrunLogo.Name = "panelUrunLogo";
-            this.panelUrunLogo.Size = new System.Drawing.Size(355, 399);
+            this.panelUrunLogo.Size = new System.Drawing.Size(355, 427);
             this.panelUrunLogo.TabIndex = 0;
             this.panelUrunLogo.VerticalScrollbarBarColor = true;
             this.panelUrunLogo.VerticalScrollbarHighlightOnWheel = false;
             this.panelUrunLogo.VerticalScrollbarSize = 10;
             this.panelUrunLogo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUrunLogo_Paint);
+            // 
+            // btnPBOX_LeftBorder
+            // 
+            this.btnPBOX_LeftBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPBOX_LeftBorder.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPBOX_LeftBorder.Enabled = false;
+            this.btnPBOX_LeftBorder.FlatAppearance.BorderSize = 0;
+            this.btnPBOX_LeftBorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPBOX_LeftBorder.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnPBOX_LeftBorder.Location = new System.Drawing.Point(0, 0);
+            this.btnPBOX_LeftBorder.Name = "btnPBOX_LeftBorder";
+            this.btnPBOX_LeftBorder.Size = new System.Drawing.Size(7, 427);
+            this.btnPBOX_LeftBorder.TabIndex = 14;
+            this.btnPBOX_LeftBorder.UseVisualStyleBackColor = false;
             // 
             // pboxUrun
             // 
@@ -75,7 +91,7 @@
             this.pboxUrun.BackColor = System.Drawing.Color.White;
             this.pboxUrun.Location = new System.Drawing.Point(13, 13);
             this.pboxUrun.Name = "pboxUrun";
-            this.pboxUrun.Size = new System.Drawing.Size(329, 373);
+            this.pboxUrun.Size = new System.Drawing.Size(329, 411);
             this.pboxUrun.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pboxUrun.TabIndex = 18;
             this.pboxUrun.TabStop = false;
@@ -95,21 +111,6 @@
             this.btnPBOX_TopBorder.TabIndex = 17;
             this.btnPBOX_TopBorder.UseVisualStyleBackColor = false;
             // 
-            // btnPBOX_BottomBorder
-            // 
-            this.btnPBOX_BottomBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPBOX_BottomBorder.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPBOX_BottomBorder.Enabled = false;
-            this.btnPBOX_BottomBorder.FlatAppearance.BorderSize = 0;
-            this.btnPBOX_BottomBorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPBOX_BottomBorder.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnPBOX_BottomBorder.Location = new System.Drawing.Point(27, 411);
-            this.btnPBOX_BottomBorder.Name = "btnPBOX_BottomBorder";
-            this.btnPBOX_BottomBorder.Size = new System.Drawing.Size(349, 7);
-            this.btnPBOX_BottomBorder.TabIndex = 16;
-            this.btnPBOX_BottomBorder.UseVisualStyleBackColor = false;
-            // 
             // btnPBOX_RightBorder
             // 
             this.btnPBOX_RightBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -121,16 +122,31 @@
             this.btnPBOX_RightBorder.ForeColor = System.Drawing.SystemColors.Desktop;
             this.btnPBOX_RightBorder.Location = new System.Drawing.Point(345, 0);
             this.btnPBOX_RightBorder.Name = "btnPBOX_RightBorder";
-            this.btnPBOX_RightBorder.Size = new System.Drawing.Size(10, 399);
+            this.btnPBOX_RightBorder.Size = new System.Drawing.Size(10, 424);
             this.btnPBOX_RightBorder.TabIndex = 15;
             this.btnPBOX_RightBorder.UseVisualStyleBackColor = false;
+            // 
+            // btnPBOX_BottomBorder
+            // 
+            this.btnPBOX_BottomBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPBOX_BottomBorder.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPBOX_BottomBorder.Enabled = false;
+            this.btnPBOX_BottomBorder.FlatAppearance.BorderSize = 0;
+            this.btnPBOX_BottomBorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPBOX_BottomBorder.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnPBOX_BottomBorder.Location = new System.Drawing.Point(3, 420);
+            this.btnPBOX_BottomBorder.Name = "btnPBOX_BottomBorder";
+            this.btnPBOX_BottomBorder.Size = new System.Drawing.Size(349, 7);
+            this.btnPBOX_BottomBorder.TabIndex = 16;
+            this.btnPBOX_BottomBorder.UseVisualStyleBackColor = false;
             // 
             // lblUrunAdi
             // 
             this.lblUrunAdi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUrunAdi.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUrunAdi.Location = new System.Drawing.Point(24, 421);
+            this.lblUrunAdi.Location = new System.Drawing.Point(27, 449);
             this.lblUrunAdi.Name = "lblUrunAdi";
             this.lblUrunAdi.Size = new System.Drawing.Size(355, 102);
             this.lblUrunAdi.TabIndex = 1;
@@ -208,7 +224,7 @@
             this.btnAyrac.FlatAppearance.BorderSize = 0;
             this.btnAyrac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAyrac.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnAyrac.Location = new System.Drawing.Point(-9, 526);
+            this.btnAyrac.Location = new System.Drawing.Point(-9, 554);
             this.btnAyrac.Name = "btnAyrac";
             this.btnAyrac.Size = new System.Drawing.Size(416, 7);
             this.btnAyrac.TabIndex = 6;
@@ -219,7 +235,7 @@
             this.lblUrunOzellikBaslik.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblUrunOzellikBaslik.Font = new System.Drawing.Font("Century Gothic", 17F, System.Drawing.FontStyle.Bold);
-            this.lblUrunOzellikBaslik.Location = new System.Drawing.Point(19, 536);
+            this.lblUrunOzellikBaslik.Location = new System.Drawing.Point(19, 564);
             this.lblUrunOzellikBaslik.Name = "lblUrunOzellikBaslik";
             this.lblUrunOzellikBaslik.Size = new System.Drawing.Size(360, 34);
             this.lblUrunOzellikBaslik.TabIndex = 7;
@@ -236,7 +252,7 @@
             this.btnAyrac2.FlatAppearance.BorderSize = 0;
             this.btnAyrac2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAyrac2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnAyrac2.Location = new System.Drawing.Point(0, 573);
+            this.btnAyrac2.Location = new System.Drawing.Point(0, 601);
             this.btnAyrac2.Name = "btnAyrac2";
             this.btnAyrac2.Size = new System.Drawing.Size(416, 7);
             this.btnAyrac2.TabIndex = 8;
@@ -272,21 +288,6 @@
             this.btnAyrac5.TabIndex = 13;
             this.btnAyrac5.UseVisualStyleBackColor = false;
             // 
-            // btnPBOX_LeftBorder
-            // 
-            this.btnPBOX_LeftBorder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPBOX_LeftBorder.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPBOX_LeftBorder.Enabled = false;
-            this.btnPBOX_LeftBorder.FlatAppearance.BorderSize = 0;
-            this.btnPBOX_LeftBorder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPBOX_LeftBorder.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnPBOX_LeftBorder.Location = new System.Drawing.Point(0, 0);
-            this.btnPBOX_LeftBorder.Name = "btnPBOX_LeftBorder";
-            this.btnPBOX_LeftBorder.Size = new System.Drawing.Size(7, 399);
-            this.btnPBOX_LeftBorder.TabIndex = 14;
-            this.btnPBOX_LeftBorder.UseVisualStyleBackColor = false;
-            // 
             // ucUrunOzellik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,7 +296,6 @@
             this.Controls.Add(this.lblUrunOzellikBaslik);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnBorderLeft);
-            this.Controls.Add(this.btnPBOX_BottomBorder);
             this.Controls.Add(this.btnBorderTop);
             this.Controls.Add(this.btnBorderBottom);
             this.Controls.Add(this.btnAyrac);

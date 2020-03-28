@@ -775,7 +775,7 @@
             // tbox_AnaSayfaDuzenle_urunAciklama
             // 
             this.tbox_AnaSayfaDuzenle_urunAciklama.Location = new System.Drawing.Point(20, 112);
-            this.tbox_AnaSayfaDuzenle_urunAciklama.MaxLength = 128;
+            this.tbox_AnaSayfaDuzenle_urunAciklama.MaxLength = 115;
             this.tbox_AnaSayfaDuzenle_urunAciklama.Name = "tbox_AnaSayfaDuzenle_urunAciklama";
             this.tbox_AnaSayfaDuzenle_urunAciklama.Size = new System.Drawing.Size(284, 67);
             this.tbox_AnaSayfaDuzenle_urunAciklama.TabIndex = 2;
@@ -925,7 +925,7 @@
             // tboxUrunEkle_UrunAciklama
             // 
             this.tboxUrunEkle_UrunAciklama.Location = new System.Drawing.Point(20, 112);
-            this.tboxUrunEkle_UrunAciklama.MaxLength = 128;
+            this.tboxUrunEkle_UrunAciklama.MaxLength = 115;
             this.tboxUrunEkle_UrunAciklama.Name = "tboxUrunEkle_UrunAciklama";
             this.tboxUrunEkle_UrunAciklama.Size = new System.Drawing.Size(284, 67);
             this.tboxUrunEkle_UrunAciklama.TabIndex = 2;
