@@ -129,7 +129,7 @@
             this.tabControl.FontSize = MetroFramework.MetroTabControlSize.Tall;
             this.tabControl.Location = new System.Drawing.Point(24, 54);
             this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 2;
+            this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1548, 932);
             this.tabControl.TabIndex = 1;
             this.tabControl.UseSelectable = true;
@@ -375,6 +375,7 @@
             // 
             this.tbarYaziSure.Location = new System.Drawing.Point(77, 159);
             this.tbarYaziSure.Maximum = 60;
+            this.tbarYaziSure.Minimum = 1;
             this.tbarYaziSure.Name = "tbarYaziSure";
             this.tbarYaziSure.Size = new System.Drawing.Size(505, 45);
             this.tbarYaziSure.TabIndex = 10;

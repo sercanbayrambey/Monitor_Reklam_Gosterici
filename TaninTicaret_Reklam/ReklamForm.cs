@@ -58,12 +58,13 @@ namespace TaninTicaret_Reklam
 
         public void ResimReklamModunaGec()
         {
-            if(resimReklamStarted)
-                YaziReklamDurdur();
             if (resimReklamStarted)
-                return;
+                ResimReklamDurdur();
+            if (yaziReklamStarted)
+                YaziReklamDurdur();
             anaForm.UrunleriTabloyaCek();
             lblYaziReklam.Visible = false;
+            panelContainer.Controls.Clear();
             panelBottom.Visible = true;
             panelContainer.Visible = true;
             panelLogo.Visible = true;
@@ -78,9 +79,11 @@ namespace TaninTicaret_Reklam
 
         public void YaziReklamModunaGec()
         {
+            if (yaziReklamStarted)
+                YaziReklamDurdur();
             if (resimReklamStarted)
                 ResimReklamDurdur();
-
+            panelContainer.Controls.Clear();
             anaForm.btnAnaSayfa_yaziReklamMod.Enabled = false;
             anaForm.btnAnaSayfa_resimReklamMod.Enabled = true;
             lblYaziReklam.Visible = true;
@@ -243,6 +246,7 @@ namespace TaninTicaret_Reklam
         {
             if (yaziReklamStarted)
                 yaziReklamTH.Abort();
+            panelContainer.Controls.Clear();
             anaForm.btnYaziReklamBaslat.Visible = false;
             anaForm.btnYaziReklamDurdur.Visible = true;
             yaziReklamTH = new Thread(new ThreadStart(YaziReklamGoster));
@@ -279,6 +283,7 @@ namespace TaninTicaret_Reklam
                         lblYaziReklam.BackColor = yaziReklamlar[i].ArkaPlanRenk;
                         this.BackColor = yaziReklamlar[i].FormArkaPlanRenk;
                         this.panelContainer.BackColor = yaziReklamlar[i].FormArkaPlanRenk;
+                        lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
                     }));
 
                     if(yaziReklamlar[i].Efekt)
@@ -301,11 +306,14 @@ namespace TaninTicaret_Reklam
                                 }));
                             }
                             j++;
+                           
                             Thread.Sleep(1000);
                         }
                     }
                     else
+                    {
                         Thread.Sleep(yaziReklamlar[i].Sure * 1000);
+                    }
                 }
           
             }

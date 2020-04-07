@@ -17,7 +17,7 @@ namespace TaninTicaret_Reklam
 
         public bool YaziReklamEkle(string yazi,int sure,Color renk,Color arkaPlanRenk,int satirSayisi,bool yanipSonmeEfekti,int boyut,Color formArkaPlan)
         {
-            if (yazi == String.Empty || sure < 0)
+            if (yazi == String.Empty || sure <= 0)
             {
                 return false;
             }
