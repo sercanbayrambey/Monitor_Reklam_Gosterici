@@ -30,6 +30,7 @@
         {
             this.lblYaziReklam = new System.Windows.Forms.Label();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.lblHavaDurumu = new System.Windows.Forms.Label();
             this.lblTaninTicaret = new System.Windows.Forms.Label();
             this.panelContainer = new System.Windows.Forms.Panel();
             this.panelBottom = new System.Windows.Forms.Panel();
@@ -58,12 +59,24 @@
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panelLogo.Controls.Add(this.lblHavaDurumu);
             this.panelLogo.Controls.Add(this.lblTaninTicaret);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(1439, 124);
             this.panelLogo.TabIndex = 1;
+            // 
+            // lblHavaDurumu
+            // 
+            this.lblHavaDurumu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHavaDurumu.Font = new System.Drawing.Font("Arial Narrow", 51.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHavaDurumu.ForeColor = System.Drawing.Color.White;
+            this.lblHavaDurumu.Location = new System.Drawing.Point(1225, 27);
+            this.lblHavaDurumu.Name = "lblHavaDurumu";
+            this.lblHavaDurumu.Size = new System.Drawing.Size(214, 97);
+            this.lblHavaDurumu.TabIndex = 1;
+            this.lblHavaDurumu.Text = "30,1°C";
             // 
             // lblTaninTicaret
             // 
@@ -174,5 +187,6 @@
         public System.Windows.Forms.Label lblTaninTicaret;
         public System.Windows.Forms.Label lblTelefon;
         public System.Windows.Forms.Label lblSite;
+        private System.Windows.Forms.Label lblHavaDurumu;
     }
 }

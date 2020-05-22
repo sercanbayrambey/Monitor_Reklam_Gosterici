@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace TaninTicaret_Reklam
 {
@@ -21,6 +25,9 @@ namespace TaninTicaret_Reklam
         ucUrunOzellik ucTekGosterilenUrun;
         bool resimReklamStarted = false;
         bool yaziReklamStarted = false;
+        string havaDerece;
+        DateTime havaDurumuSonGuncelleme;
+        DateTime tarihSonGosterme;
 
         public ReklamForm(AnaForm anaForm)
         {
@@ -33,7 +40,7 @@ namespace TaninTicaret_Reklam
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.ControlBox = true;
-            lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            TarihveHavaDurumuGoster();
         }
 
         public void ReklamiTamEkranYap()
@@ -167,7 +174,7 @@ namespace TaninTicaret_Reklam
                             j = 0;
                             lblDate.Invoke((Action)(() =>
                             {
-                                lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                                TarihveHavaDurumuGoster();
                             }));
                             
                             Thread.Sleep(ResimReklam.GecmeSuresi);
@@ -263,6 +270,13 @@ namespace TaninTicaret_Reklam
             yaziReklamStarted = false;
         }
 
+        private void TarihveHavaDurumuGoster()
+        {
+            tarihSonGosterme = DateTime.Now;
+            lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            lblHavaDurumu.Text = HavaDurumuCek("") + "°C";
+        }
+
         private void YaziReklamGoster()
         {
             while(true)
@@ -283,7 +297,8 @@ namespace TaninTicaret_Reklam
                         lblYaziReklam.BackColor = yaziReklamlar[i].ArkaPlanRenk;
                         this.BackColor = yaziReklamlar[i].FormArkaPlanRenk;
                         this.panelContainer.BackColor = yaziReklamlar[i].FormArkaPlanRenk;
-                        lblDate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                        TarihveHavaDurumuGoster();
+
                     }));
 
                     if(yaziReklamlar[i].Efekt)
@@ -330,6 +345,39 @@ namespace TaninTicaret_Reklam
             Application.Exit();
         }
 
+
+
+        private string HavaDurumuCek(string sehir)
+        {
+            TimeSpan span = DateTime.Now.Subtract(havaDurumuSonGuncelleme);
+            string havaDereceCached = havaDerece;
+            if (span.TotalMinutes < 30)
+                return havaDereceCached;
+
+            try
+            {
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://api.collectapi.com/weather/getWeather?data.lang=tr&data.city=izmir");
+                request.ContentType = "application/json";
+                request.Headers.Add("authorization", "apikey 6L6crjOSv7ARGetMUth1nf:0FxCOOpzVG5VpIGpLhkiDK");
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream stream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(stream);
+                string jsondata = reader.ReadToEnd();
+                var test = JsonConvert.DeserializeObject<dynamic>(jsondata);
+                havaDurumuSonGuncelleme = DateTime.Now;
+                foreach (var t in test.result)
+                {
+                    havaDerece = Convert.ToDecimal(t.degree).ToString("0.0");
+                    break;
+                }
+                return havaDerece;
+
+            }
+            catch
+            {
+                return havaDereceCached;
+            }
+        }
         private void panelBottom_Paint(object sender, PaintEventArgs e)
         {
 
