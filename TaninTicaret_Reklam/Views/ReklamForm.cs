@@ -367,7 +367,7 @@ namespace TaninTicaret_Reklam
                 havaDurumuSonGuncelleme = DateTime.Now;
                 foreach (var t in test.result)
                 {
-                    havaDerece = Convert.ToDecimal(t.degree).ToString("0.0");
+                    havaDerece = Math.Round(Convert.ToDecimal(t.degree)).ToString();
                     break;
                 }
                 return havaDerece;
