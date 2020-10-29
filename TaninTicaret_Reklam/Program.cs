@@ -16,7 +16,14 @@ namespace TaninTicaret_Reklam
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AnaForm());
+            try
+            {
+                Application.Run(new AnaForm());
+            }
+            catch(Exception e)
+            {
+                return;
+            }
         }
     }
 }

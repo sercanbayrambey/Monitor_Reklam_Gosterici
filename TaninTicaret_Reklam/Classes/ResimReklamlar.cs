@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using System.Data.SqlClient;
+using System.Data.SQLite;
 
 namespace TaninTicaret_Reklam
 {
@@ -13,6 +12,7 @@ namespace TaninTicaret_Reklam
 
         public List<ucUrunOzellik> ResimReklamList { get; set; }
         private DB db;
+        public int GecmeSuresi { get; set; }
         public ResimReklamlar()
         {
             ResimReklamList = new List<ucUrunOzellik>();
@@ -21,18 +21,20 @@ namespace TaninTicaret_Reklam
 
         public List<ucUrunOzellik> ResimReklamlariCek()
         {
-            SqlDataReader dr;
+            SQLiteDataReader dr;
             ResimReklamList.Clear();
             string query = "SELECT * FROM tblResimReklamlar";
-            db.Connect();
+            if (!db.Connect())
+                return ResimReklamList;
+                
             dr = db.GetQuery(query);
             while(dr.Read())
             {
                 ucUrunOzellik urun = new ucUrunOzellik();
                 urun.UrunAd = dr["urun_ad"].ToString();
                 urun.UrunAciklama = dr["urun_aciklama"].ToString();
-                urun.UrunFiyat = Convert.ToDecimal(dr["urun_fiyat"]);
                 urun.UrunResimYol = dr["urun_resim_yol"].ToString();
+                urun.UrunID = Convert.ToInt32(dr["reklam_id"]);
                 urun.BilgileriFormaCek();
                 ResimReklamList.Add(urun);
             }
